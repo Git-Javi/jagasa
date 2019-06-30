@@ -16,14 +16,12 @@ public class Persona {
 	private String nombre;
 
 	private String tlf;
+	
+	public Persona() {
+		super();
+	}
 
 	public Persona(String nombre, String tlf) {
-		this.nombre = nombre;
-		this.tlf = tlf;
-	}
-	
-	public Persona(Long id, String nombre, String tlf) {
-		this.id = id;
 		this.nombre = nombre;
 		this.tlf = tlf;
 	}
