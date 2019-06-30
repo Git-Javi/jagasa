@@ -26,7 +26,7 @@ public class PersonaServiceImplementation implements PersonaService {
 		Persona personaResponse = personaRepository.save(personaRequest);
 		System.out.println("Response :: PersonaService.createPersona(PersonaDTO): " + personaResponse);
 
-		PersonaDTO result = new PersonaDTO(personaResponse.getId(), personaResponse.getNombre(),personaResponse.getTlf());
+		PersonaDTO result = new PersonaDTO(personaResponse.getId(), personaResponse.getNombre(), personaResponse.getTlf());
 		System.out.println("Fin :: PersonaService.createPersona(PersonaDTO): " + result);
 
 		return result;
@@ -47,6 +47,16 @@ public class PersonaServiceImplementation implements PersonaService {
 		}
 
 		return listaPersonasDTO;
+	}
+
+	@Override
+	public PersonaDTO findPersonaPorId(Long id) {
+
+		Persona p = personaRepository.findById(id).get();
+
+		PersonaDTO pDTO = new PersonaDTO(p.getId(), p.getNombre(), p.getTlf());
+
+		return pDTO;
 	}
 
 }

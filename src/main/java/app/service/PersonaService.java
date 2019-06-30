@@ -10,4 +10,6 @@ public interface PersonaService {
 	
 	List<PersonaDTO> showPersonas();
 	
+	PersonaDTO findPersonaPorId(Long id);
+	
 }
