@@ -1,29 +1,32 @@
 package app.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.api.dto.PersonaDTO;
 import app.model.entity.Persona;
-
+import app.repository.PersonaRepository;
 
 @Service
 public class PersonaServiceImplementation implements PersonaService {
 
-	@Override
-	public PersonaDTO getPersonaDTO(PersonaDTO unaPersonaDTO) {
-
-		return unaPersonaDTO;
-	}
+	@Autowired
+	private PersonaRepository personaRepository;
 
 	@Override
-	public Persona getPersona(PersonaDTO unaPersonaDTO) {
+	public PersonaDTO createPersona(PersonaDTO persona) {
+		System.out.println("Inicio :: PersonaService.createPersona(PersonaDTO): " + persona);
 		
-		Persona unaPersona = new Persona(
-				unaPersonaDTO.getId(),
-				unaPersonaDTO.getNombre(),
-				unaPersonaDTO.getTlf());
+		Persona personaRequest = new Persona(persona.getNombre(), persona.getTlf());
+		System.out.println("Request :: PersonaService.createPersona(PersonaDTO): " + personaRequest);
 		
-		return unaPersona;
+		Persona personaResponse = personaRepository.save(personaRequest);
+		System.out.println("Response :: PersonaService.createPersona(PersonaDTO): " + personaResponse);
+		
+		PersonaDTO result = new PersonaDTO(personaResponse.getId(), personaResponse.getNombre(),personaResponse.getTlf());
+		System.out.println("Fin :: PersonaService.createPersona(PersonaDTO): " + result);
+		
+		return result;
 	}
 
 }

@@ -1,11 +1,9 @@
 package app.service;
 
 import app.api.dto.PersonaDTO;
-import app.model.entity.Persona;
 
 public interface PersonaService {
 
-	PersonaDTO getPersonaDTO(PersonaDTO unaPersonaDTO);
+	PersonaDTO createPersona(PersonaDTO persona);
 	
-	Persona getPersona(PersonaDTO unaPersonaDTO);
 }

@@ -1,12 +1,9 @@
 package app.repository;
 
-import app.api.dto.PersonaDTO;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
 import app.model.entity.Persona;
 
-//import org.springframework.data.jpa.repository.JpaRepository;
+public interface PersonaRepository extends PagingAndSortingRepository<Persona, Long> {
 
-public interface PersonaRepository { // extends JpaRepository<PersonaDTORepo, Long>
-
-	PersonaDTO pintaLog(Persona unaPersona);
-	
 }

@@ -6,29 +6,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.api.dto.PersonaDTO;
-import app.repository.PersonaRepository;
 import app.service.PersonaService;
 
 @RestController
 public class PersonaController {
-	
+
 	@Autowired
-	private PersonaService ps;
-	
-	@Autowired
-	private PersonaRepository pr;
-	
-	
+	private PersonaService personaService;
 
 	@RequestMapping("/persona")
-	public PersonaDTO getPersona(@RequestBody PersonaDTO unaPersona) {
+	public PersonaDTO createPersona(@RequestBody PersonaDTO persona) {
 		
-		System.out.println("\n\n" + unaPersona + "\n");
+		System.out.println("Inicio :: PersonaController.createPersona(PersonaDTO): " + persona);
 		
-		pr.pintaLog(ps.getPersona(unaPersona));
+		PersonaDTO result = personaService.createPersona(persona);
+		System.out.println("Fin :: PersonaController.createPersona(PersonaDTO): " + result);
 		
-		return ps.getPersonaDTO(unaPersona);
-		
+		return result;
 	}
 
 }
