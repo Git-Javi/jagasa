@@ -1,0 +1,48 @@
+07-07-2019 14:04:20.178 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Starting JagasaApplicationTests on DESKTOP-VSQJ6KC with PID 7896 (started by Javi in C:\dev\ws\default\jagasa)
+07-07-2019 14:04:20.180 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: No active profile set, falling back to default profiles: default
+07-07-2019 14:04:20.888 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Bootstrapping Spring Data repositories in DEFAULT mode.
+07-07-2019 14:04:20.955 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Finished Spring Data repository scanning in 56ms. Found 1 repository interfaces.
+07-07-2019 14:04:21.368 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8afa63a5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+07-07-2019 14:04:21.583 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Starting...
+07-07-2019 14:04:21.824 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Start completed.
+07-07-2019 14:04:21.906 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+07-07-2019 14:04:21.984 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000412: Hibernate Core {5.3.10.Final}
+07-07-2019 14:04:21.986 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000206: hibernate.properties not found
+07-07-2019 14:04:22.133 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+07-07-2019 14:04:22.395 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+07-07-2019 14:04:23.066 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3daf03d8'
+07-07-2019 14:04:23.069 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 14:04:24.046 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initializing ExecutorService 'applicationTaskExecutor'
+07-07-2019 14:04:24.107 || HILO: [main] || NIVEL:  [31mWARN [0;39m|| MSG DE LOG: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07-07-2019 14:04:24.508 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Started JagasaApplicationTests in 4.602 seconds (JVM running for 5.324)
+07-07-2019 14:04:24.611 || HILO: [Thread-3] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Shutting down ExecutorService 'applicationTaskExecutor'
+07-07-2019 14:04:24.613 || HILO: [Thread-3] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Closing JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 14:04:24.616 || HILO: [Thread-3] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Shutdown initiated...
+07-07-2019 14:04:24.619 || HILO: [Thread-3] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Shutdown completed.
+07-07-2019 14:04:31.359 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Starting Application on DESKTOP-VSQJ6KC with PID 6624 (C:\dev\ws\default\jagasa\target\classes started by Javi in C:\dev\ws\default\jagasa)
+07-07-2019 14:04:31.365 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: No active profile set, falling back to default profiles: default
+07-07-2019 14:04:31.883 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Bootstrapping Spring Data repositories in DEFAULT mode.
+07-07-2019 14:04:31.943 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Finished Spring Data repository scanning in 52ms. Found 1 repository interfaces.
+07-07-2019 14:04:32.370 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e8ecb32e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+07-07-2019 14:04:32.653 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Tomcat initialized with port(s): 8080 (http)
+07-07-2019 14:04:32.690 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Starting service [Tomcat]
+07-07-2019 14:04:32.690 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Starting Servlet engine: [Apache Tomcat/9.0.21]
+07-07-2019 14:04:32.807 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initializing Spring embedded WebApplicationContext
+07-07-2019 14:04:32.808 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Root WebApplicationContext: initialization completed in 1403 ms
+07-07-2019 14:04:33.015 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Starting...
+07-07-2019 14:04:33.215 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Start completed.
+07-07-2019 14:04:33.283 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+07-07-2019 14:04:33.378 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000412: Hibernate Core {5.3.10.Final}
+07-07-2019 14:04:33.381 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000206: hibernate.properties not found
+07-07-2019 14:04:33.770 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+07-07-2019 14:04:33.918 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+07-07-2019 14:04:34.493 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@e064e03'
+07-07-2019 14:04:34.496 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 14:04:34.968 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initializing ExecutorService 'applicationTaskExecutor'
+07-07-2019 14:04:35.024 || HILO: [main] || NIVEL:  [31mWARN [0;39m|| MSG DE LOG: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07-07-2019 14:04:35.297 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Tomcat started on port(s): 8080 (http) with context path ''
+07-07-2019 14:04:35.300 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Started Application in 4.465 seconds (JVM running for 8.673)
