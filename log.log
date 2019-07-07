@@ -71,3 +71,327 @@
 07-07-2019 22:01:19.022 || THREAD: [http-nio-8080-exec-6] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Persona de la lista: Persona [id=1, nombre=Javier, tlf=615152884]
 07-07-2019 22:01:19.030 || THREAD: [http-nio-8080-exec-6] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Persona de la lista: Persona [id=2, nombre=David, tlf=617052929]
 07-07-2019 22:01:19.030 || THREAD: [http-nio-8080-exec-6] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Persona de la lista: Persona [id=3, nombre=Almu, tlf=687242325]
+07-07-2019 22:17:12.478 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting JagasaApplicationTests on DESKTOP-VSQJ6KC with PID 1612 (started by Javi in C:\dev\ws\default\jagasa)
+07-07-2019 22:17:12.480 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: No active profile set, falling back to default profiles: default
+07-07-2019 22:17:13.216 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bootstrapping Spring Data repositories in DEFAULT mode.
+07-07-2019 22:17:13.302 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Finished Spring Data repository scanning in 73ms. Found 1 repository interfaces.
+07-07-2019 22:17:13.698 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$74e440d6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+07-07-2019 22:17:13.925 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Starting...
+07-07-2019 22:17:14.166 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Start completed.
+07-07-2019 22:17:14.238 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+07-07-2019 22:17:14.316 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000412: Hibernate Core {5.3.10.Final}
+07-07-2019 22:17:14.318 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000206: hibernate.properties not found
+07-07-2019 22:17:14.469 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+07-07-2019 22:17:14.731 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+07-07-2019 22:17:15.398 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@4665428b'
+07-07-2019 22:17:15.400 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 22:17:15.662 || THREAD: [main] || LEVEL:  [31mWARN [0;39m|| LOG MSG: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaController': Unsatisfied dependency expressed through field 'personaService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaServiceImplementation': Unsatisfied dependency expressed through field 'personaMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'app.mapper.PersonaMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+07-07-2019 22:17:15.664 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Closing JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 22:17:15.667 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown initiated...
+07-07-2019 22:17:15.669 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown completed.
+07-07-2019 22:17:15.677 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+07-07-2019 22:17:15.786 || THREAD: [main] || LEVEL:  [1;31mERROR[0;39m|| LOG MSG: 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field personaMapper in app.service.PersonaServiceImplementation required a bean of type 'app.mapper.PersonaMapper' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'app.mapper.PersonaMapper' in your configuration.
+
+07-07-2019 22:17:15.792 || THREAD: [main] || LEVEL:  [1;31mERROR[0;39m|| LOG MSG: Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@619713e5] to prepare test instance [app.JagasaApplicationTests@1a2e563e]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaController': Unsatisfied dependency expressed through field 'personaService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaServiceImplementation': Unsatisfied dependency expressed through field 'personaMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'app.mapper.PersonaMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:845)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:742)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:389)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:119)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 27 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaServiceImplementation': Unsatisfied dependency expressed through field 'personaMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'app.mapper.PersonaMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 45 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'app.mapper.PersonaMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1217)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 58 common frames omitted
+07-07-2019 22:21:19.521 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting JagasaApplicationTests on DESKTOP-VSQJ6KC with PID 10976 (started by Javi in C:\dev\ws\default\jagasa)
+07-07-2019 22:21:19.523 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: No active profile set, falling back to default profiles: default
+07-07-2019 22:21:20.251 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bootstrapping Spring Data repositories in DEFAULT mode.
+07-07-2019 22:21:20.331 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Finished Spring Data repository scanning in 68ms. Found 1 repository interfaces.
+07-07-2019 22:21:20.746 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6d0aef5a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+07-07-2019 22:21:20.979 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Starting...
+07-07-2019 22:21:21.186 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Start completed.
+07-07-2019 22:21:21.308 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+07-07-2019 22:21:21.392 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000412: Hibernate Core {5.3.10.Final}
+07-07-2019 22:21:21.394 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000206: hibernate.properties not found
+07-07-2019 22:21:21.542 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+07-07-2019 22:21:21.805 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+07-07-2019 22:21:22.453 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6a3fbcb1'
+07-07-2019 22:21:22.455 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 22:21:22.731 || THREAD: [main] || LEVEL:  [31mWARN [0;39m|| LOG MSG: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaController': Unsatisfied dependency expressed through field 'personaService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaServiceImplementation': Unsatisfied dependency expressed through field 'personaMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'app.mapper.PersonaMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+07-07-2019 22:21:22.732 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Closing JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 22:21:22.735 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown initiated...
+07-07-2019 22:21:22.737 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown completed.
+07-07-2019 22:21:22.746 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+07-07-2019 22:21:22.896 || THREAD: [main] || LEVEL:  [1;31mERROR[0;39m|| LOG MSG: 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field personaMapper in app.service.PersonaServiceImplementation required a bean of type 'app.mapper.PersonaMapper' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'app.mapper.PersonaMapper' in your configuration.
+
+07-07-2019 22:21:22.905 || THREAD: [main] || LEVEL:  [1;31mERROR[0;39m|| LOG MSG: Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@619713e5] to prepare test instance [app.JagasaApplicationTests@2f8c4fae]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaController': Unsatisfied dependency expressed through field 'personaService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaServiceImplementation': Unsatisfied dependency expressed through field 'personaMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'app.mapper.PersonaMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:845)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:742)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:389)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:119)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 27 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personaServiceImplementation': Unsatisfied dependency expressed through field 'personaMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'app.mapper.PersonaMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 45 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'app.mapper.PersonaMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1217)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 58 common frames omitted
+07-07-2019 22:58:14.276 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting JagasaApplicationTests on DESKTOP-VSQJ6KC with PID 9780 (started by Javi in C:\dev\ws\default\jagasa)
+07-07-2019 22:58:14.278 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: No active profile set, falling back to default profiles: default
+07-07-2019 22:58:15.086 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bootstrapping Spring Data repositories in DEFAULT mode.
+07-07-2019 22:58:15.172 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Finished Spring Data repository scanning in 74ms. Found 1 repository interfaces.
+07-07-2019 22:58:15.681 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4783b9b1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+07-07-2019 22:58:15.947 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Starting...
+07-07-2019 22:58:16.185 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Start completed.
+07-07-2019 22:58:16.264 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+07-07-2019 22:58:16.341 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000412: Hibernate Core {5.3.10.Final}
+07-07-2019 22:58:16.343 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000206: hibernate.properties not found
+07-07-2019 22:58:16.492 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+07-07-2019 22:58:16.755 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+07-07-2019 22:58:17.456 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1ef31f71'
+07-07-2019 22:58:17.463 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 22:58:18.516 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing ExecutorService 'applicationTaskExecutor'
+07-07-2019 22:58:18.584 || THREAD: [main] || LEVEL:  [31mWARN [0;39m|| LOG MSG: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07-07-2019 22:58:19.007 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Started JagasaApplicationTests in 5.012 seconds (JVM running for 5.718)
+07-07-2019 22:58:19.114 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Shutting down ExecutorService 'applicationTaskExecutor'
+07-07-2019 22:58:19.117 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Closing JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 22:58:19.120 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown initiated...
+07-07-2019 22:58:19.123 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown completed.
+07-07-2019 23:02:01.099 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting JagasaApplicationTests on DESKTOP-VSQJ6KC with PID 12840 (started by Javi in C:\dev\ws\default\jagasa)
+07-07-2019 23:02:01.102 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: No active profile set, falling back to default profiles: default
+07-07-2019 23:02:01.833 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bootstrapping Spring Data repositories in DEFAULT mode.
+07-07-2019 23:02:01.913 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Finished Spring Data repository scanning in 69ms. Found 1 repository interfaces.
+07-07-2019 23:02:02.333 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$995485fb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+07-07-2019 23:02:02.562 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Starting...
+07-07-2019 23:02:02.804 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Start completed.
+07-07-2019 23:02:02.878 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+07-07-2019 23:02:02.960 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000412: Hibernate Core {5.3.10.Final}
+07-07-2019 23:02:02.962 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000206: hibernate.properties not found
+07-07-2019 23:02:03.117 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+07-07-2019 23:02:03.387 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+07-07-2019 23:02:04.035 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6637a365'
+07-07-2019 23:02:04.038 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 23:02:04.972 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing ExecutorService 'applicationTaskExecutor'
+07-07-2019 23:02:05.033 || THREAD: [main] || LEVEL:  [31mWARN [0;39m|| LOG MSG: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07-07-2019 23:02:05.437 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Started JagasaApplicationTests in 4.62 seconds (JVM running for 5.33)
+07-07-2019 23:02:05.559 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Shutting down ExecutorService 'applicationTaskExecutor'
+07-07-2019 23:02:05.561 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Closing JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 23:02:05.564 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown initiated...
+07-07-2019 23:02:05.568 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown completed.
+07-07-2019 23:02:19.435 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting Application on DESKTOP-VSQJ6KC with PID 2232 (C:\dev\ws\default\jagasa\target\classes started by Javi in C:\dev\ws\default\jagasa)
+07-07-2019 23:02:19.439 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: No active profile set, falling back to default profiles: default
+07-07-2019 23:02:20.037 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bootstrapping Spring Data repositories in DEFAULT mode.
+07-07-2019 23:02:20.115 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Finished Spring Data repository scanning in 66ms. Found 1 repository interfaces.
+07-07-2019 23:02:20.492 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3c314d4a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+07-07-2019 23:02:20.795 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Tomcat initialized with port(s): 8080 (http)
+07-07-2019 23:02:20.828 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting service [Tomcat]
+07-07-2019 23:02:20.828 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting Servlet engine: [Apache Tomcat/9.0.21]
+07-07-2019 23:02:20.941 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing Spring embedded WebApplicationContext
+07-07-2019 23:02:20.942 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Root WebApplicationContext: initialization completed in 1464 ms
+07-07-2019 23:02:21.141 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Starting...
+07-07-2019 23:02:21.575 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Start completed.
+07-07-2019 23:02:21.647 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+07-07-2019 23:02:21.726 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000412: Hibernate Core {5.3.10.Final}
+07-07-2019 23:02:21.727 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000206: hibernate.properties not found
+07-07-2019 23:02:21.873 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+07-07-2019 23:02:22.025 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+07-07-2019 23:02:22.626 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@565e87ae'
+07-07-2019 23:02:22.628 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 23:02:23.151 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing ExecutorService 'applicationTaskExecutor'
+07-07-2019 23:02:23.214 || THREAD: [main] || LEVEL:  [31mWARN [0;39m|| LOG MSG: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07-07-2019 23:02:23.467 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Tomcat started on port(s): 8080 (http) with context path ''
+07-07-2019 23:02:23.470 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Started Application in 4.519 seconds (JVM running for 9.34)
+07-07-2019 23:03:22.563 || THREAD: [http-nio-8080-exec-1] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing Spring DispatcherServlet 'dispatcherServlet'
+07-07-2019 23:03:22.570 || THREAD: [http-nio-8080-exec-1] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing Servlet 'dispatcherServlet'
+07-07-2019 23:03:22.582 || THREAD: [http-nio-8080-exec-1] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Completed initialization in 10 ms
+07-07-2019 23:03:22.714 || THREAD: [http-nio-8080-exec-1] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaController.createPersona(PersonaDTO): Persona [id=null, nombre=Almu, tlf=687242325]
+07-07-2019 23:03:22.715 || THREAD: [http-nio-8080-exec-1] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=Almu, tlf=687242325]
+07-07-2019 23:03:22.720 || THREAD: [http-nio-8080-exec-1] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Request :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=Almu, tlf=687242325]
+07-07-2019 23:03:22.782 || THREAD: [http-nio-8080-exec-1] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Response :: PersonaService.createPersona(PersonaDTO): Persona [id=1, nombre=Almu, tlf=687242325]
+07-07-2019 23:03:22.782 || THREAD: [http-nio-8080-exec-1] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaService.createPersona(PersonaDTO): Persona [id=1, nombre=Almu, tlf=687242325]
+07-07-2019 23:03:22.783 || THREAD: [http-nio-8080-exec-1] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaController.createPersona(PersonaDTO): Persona [id=1, nombre=Almu, tlf=687242325]
+07-07-2019 23:03:39.407 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaController.createPersona(PersonaDTO): Persona [id=null, nombre=David, tlf=617052929]
+07-07-2019 23:03:39.412 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=David, tlf=617052929]
+07-07-2019 23:03:39.417 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Request :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=David, tlf=617052929]
+07-07-2019 23:03:39.419 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Response :: PersonaService.createPersona(PersonaDTO): Persona [id=2, nombre=David, tlf=617052929]
+07-07-2019 23:03:39.424 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaService.createPersona(PersonaDTO): Persona [id=2, nombre=David, tlf=617052929]
+07-07-2019 23:03:39.424 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaController.createPersona(PersonaDTO): Persona [id=2, nombre=David, tlf=617052929]
+07-07-2019 23:03:45.679 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaController.createPersona(PersonaDTO): Persona [id=null, nombre=Javier, tlf=615152884]
+07-07-2019 23:03:45.684 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=Javier, tlf=615152884]
+07-07-2019 23:03:45.689 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Request :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=Javier, tlf=615152884]
+07-07-2019 23:03:45.690 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Response :: PersonaService.createPersona(PersonaDTO): Persona [id=3, nombre=Javier, tlf=615152884]
+07-07-2019 23:03:45.691 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaService.createPersona(PersonaDTO): Persona [id=3, nombre=Javier, tlf=615152884]
+07-07-2019 23:03:45.691 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaController.createPersona(PersonaDTO): Persona [id=3, nombre=Javier, tlf=615152884]
+07-07-2019 23:04:05.944 || THREAD: [http-nio-8080-exec-6] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000397: Using ASTQueryTranslatorFactory
+07-07-2019 23:04:06.062 || THREAD: [http-nio-8080-exec-6] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Persona de la lista: Persona [id=1, nombre=Almu, tlf=687242325]
+07-07-2019 23:04:06.069 || THREAD: [http-nio-8080-exec-6] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Persona de la lista: Persona [id=2, nombre=David, tlf=617052929]
+07-07-2019 23:04:06.070 || THREAD: [http-nio-8080-exec-6] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Persona de la lista: Persona [id=3, nombre=Javier, tlf=615152884]

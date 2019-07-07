@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.api.dto.PersonaDTO;
-//import app.mapper.PersonaMapper;
+import app.mapper.PersonaMapper;
 import app.model.entity.Persona;
 import app.repository.PersonaRepository;
 
@@ -21,8 +21,8 @@ public class PersonaServiceImplementation implements PersonaService {
 	@Autowired
 	private PersonaRepository personaRepository;
 	
-//	@Autowired
-//	private PersonaMapper personaMapper;
+	@Autowired
+	private PersonaMapper personaMapper;
 
 	@Override
 	public PersonaDTO createPersona(PersonaDTO persona) {
@@ -54,8 +54,8 @@ public class PersonaServiceImplementation implements PersonaService {
 
 		for (Persona p : listaPersonas) {
 
-			PersonaDTO pDTO = new PersonaDTO(p.getId(), p.getNombre(), p.getTlf());
-			//PersonaDTO pDTO = personaMapper.personaToPersonaDTO(p);
+			//PersonaDTO pDTO = new PersonaDTO(p.getId(), p.getNombre(), p.getTlf());
+			PersonaDTO pDTO = personaMapper.personaToPersonaDTO(p);
 			listaPersonasDTO.add(pDTO);
 		}
 
@@ -67,8 +67,8 @@ public class PersonaServiceImplementation implements PersonaService {
 
 		Persona p = personaRepository.findById(id).get();
 
-		PersonaDTO pDTO = new PersonaDTO(p.getId(), p.getNombre(), p.getTlf());
-		//PersonaDTO pDTO = personaMapper.personaToPersonaDTO(p);
+		//PersonaDTO pDTO = new PersonaDTO(p.getId(), p.getNombre(), p.getTlf());
+		PersonaDTO pDTO = personaMapper.personaToPersonaDTO(p);
 
 		return pDTO;
 	}
