@@ -28,11 +28,11 @@ public class PersonaController {
 	public PersonaDTO createPersona(@RequestBody PersonaDTO persona) {
 
 		//System.out.println("Inicio :: PersonaController.createPersona(PersonaDTO): " + persona);
-		LOGGER.info("Inicio :: PersonaController.createPersona(PersonaDTO): " + persona);
+		LOGGER.info("Inicio :: PersonaController.createPersona(PersonaDTO): {}", persona);
 
 		PersonaDTO result = personaService.createPersona(persona);
 		//System.out.println("Fin :: PersonaController.createPersona(PersonaDTO): " + result);
-		LOGGER.info("Fin :: PersonaController.createPersona(PersonaDTO): " + result);
+		LOGGER.info("Fin :: PersonaController.createPersona(PersonaDTO): {}", result);
 
 		return result;
 	}
@@ -47,7 +47,7 @@ public class PersonaController {
 		for (PersonaDTO p : listaPersonasDTO) {
 
 			//System.out.println(p);
-			LOGGER.info("Persona de la lista:" +p);
+			LOGGER.info("Persona de la lista: {}", p);
 		}
 
 		return listaPersonasDTO;
