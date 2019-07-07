@@ -3,6 +3,8 @@ package app.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,9 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.api.dto.PersonaDTO;
 import app.service.PersonaService;
+import app.service.PersonaServiceImplementation;
 
 @RestController
 public class PersonaController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(PersonaController.class);
 
 	@Autowired
 	private PersonaService personaService;
@@ -22,10 +27,12 @@ public class PersonaController {
 	@RequestMapping("/persona")
 	public PersonaDTO createPersona(@RequestBody PersonaDTO persona) {
 
-		System.out.println("Inicio :: PersonaController.createPersona(PersonaDTO): " + persona);
+		//System.out.println("Inicio :: PersonaController.createPersona(PersonaDTO): " + persona);
+		LOGGER.info("Inicio :: PersonaController.createPersona(PersonaDTO): " + persona);
 
 		PersonaDTO result = personaService.createPersona(persona);
-		System.out.println("Fin :: PersonaController.createPersona(PersonaDTO): " + result);
+		//System.out.println("Fin :: PersonaController.createPersona(PersonaDTO): " + result);
+		LOGGER.info("Fin :: PersonaController.createPersona(PersonaDTO): " + result);
 
 		return result;
 	}
@@ -39,7 +46,8 @@ public class PersonaController {
 
 		for (PersonaDTO p : listaPersonasDTO) {
 
-			System.out.println(p);
+			//System.out.println(p);
+			LOGGER.info("Persona de la lista:" +p);
 		}
 
 		return listaPersonasDTO;

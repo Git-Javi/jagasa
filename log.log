@@ -1,48 +1,73 @@
-07-07-2019 14:04:20.178 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Starting JagasaApplicationTests on DESKTOP-VSQJ6KC with PID 7896 (started by Javi in C:\dev\ws\default\jagasa)
-07-07-2019 14:04:20.180 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: No active profile set, falling back to default profiles: default
-07-07-2019 14:04:20.888 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Bootstrapping Spring Data repositories in DEFAULT mode.
-07-07-2019 14:04:20.955 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Finished Spring Data repository scanning in 56ms. Found 1 repository interfaces.
-07-07-2019 14:04:21.368 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8afa63a5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-07-07-2019 14:04:21.583 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Starting...
-07-07-2019 14:04:21.824 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Start completed.
-07-07-2019 14:04:21.906 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000204: Processing PersistenceUnitInfo [
+07-07-2019 19:53:19.990 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting JagasaApplicationTests on DESKTOP-VSQJ6KC with PID 10620 (started by Javi in C:\dev\ws\default\jagasa)
+07-07-2019 19:53:19.992 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: No active profile set, falling back to default profiles: default
+07-07-2019 19:53:20.838 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bootstrapping Spring Data repositories in DEFAULT mode.
+07-07-2019 19:53:20.907 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Finished Spring Data repository scanning in 58ms. Found 1 repository interfaces.
+07-07-2019 19:53:21.306 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c9a78659] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+07-07-2019 19:53:21.536 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Starting...
+07-07-2019 19:53:21.782 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Start completed.
+07-07-2019 19:53:21.855 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-07-07-2019 14:04:21.984 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000412: Hibernate Core {5.3.10.Final}
-07-07-2019 14:04:21.986 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000206: hibernate.properties not found
-07-07-2019 14:04:22.133 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-07-07-2019 14:04:22.395 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-07-07-2019 14:04:23.066 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3daf03d8'
-07-07-2019 14:04:23.069 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initialized JPA EntityManagerFactory for persistence unit 'default'
-07-07-2019 14:04:24.046 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initializing ExecutorService 'applicationTaskExecutor'
-07-07-2019 14:04:24.107 || HILO: [main] || NIVEL:  [31mWARN [0;39m|| MSG DE LOG: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-07-07-2019 14:04:24.508 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Started JagasaApplicationTests in 4.602 seconds (JVM running for 5.324)
-07-07-2019 14:04:24.611 || HILO: [Thread-3] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Shutting down ExecutorService 'applicationTaskExecutor'
-07-07-2019 14:04:24.613 || HILO: [Thread-3] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Closing JPA EntityManagerFactory for persistence unit 'default'
-07-07-2019 14:04:24.616 || HILO: [Thread-3] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Shutdown initiated...
-07-07-2019 14:04:24.619 || HILO: [Thread-3] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Shutdown completed.
-07-07-2019 14:04:31.359 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Starting Application on DESKTOP-VSQJ6KC with PID 6624 (C:\dev\ws\default\jagasa\target\classes started by Javi in C:\dev\ws\default\jagasa)
-07-07-2019 14:04:31.365 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: No active profile set, falling back to default profiles: default
-07-07-2019 14:04:31.883 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Bootstrapping Spring Data repositories in DEFAULT mode.
-07-07-2019 14:04:31.943 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Finished Spring Data repository scanning in 52ms. Found 1 repository interfaces.
-07-07-2019 14:04:32.370 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e8ecb32e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-07-07-2019 14:04:32.653 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Tomcat initialized with port(s): 8080 (http)
-07-07-2019 14:04:32.690 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Starting service [Tomcat]
-07-07-2019 14:04:32.690 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Starting Servlet engine: [Apache Tomcat/9.0.21]
-07-07-2019 14:04:32.807 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initializing Spring embedded WebApplicationContext
-07-07-2019 14:04:32.808 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Root WebApplicationContext: initialization completed in 1403 ms
-07-07-2019 14:04:33.015 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Starting...
-07-07-2019 14:04:33.215 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HikariPool-1 - Start completed.
-07-07-2019 14:04:33.283 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000204: Processing PersistenceUnitInfo [
+07-07-2019 19:53:21.935 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000412: Hibernate Core {5.3.10.Final}
+07-07-2019 19:53:21.936 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000206: hibernate.properties not found
+07-07-2019 19:53:22.092 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+07-07-2019 19:53:22.367 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+07-07-2019 19:53:23.037 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@61608e1a'
+07-07-2019 19:53:23.039 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 19:53:24.026 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing ExecutorService 'applicationTaskExecutor'
+07-07-2019 19:53:24.086 || THREAD: [main] || LEVEL:  [31mWARN [0;39m|| LOG MSG: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07-07-2019 19:53:24.484 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Started JagasaApplicationTests in 4.786 seconds (JVM running for 5.521)
+07-07-2019 19:53:24.603 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Shutting down ExecutorService 'applicationTaskExecutor'
+07-07-2019 19:53:24.605 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Closing JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 19:53:24.608 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown initiated...
+07-07-2019 19:53:24.610 || THREAD: [Thread-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Shutdown completed.
+07-07-2019 19:53:31.800 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting Application on DESKTOP-VSQJ6KC with PID 4300 (C:\dev\ws\default\jagasa\target\classes started by Javi in C:\dev\ws\default\jagasa)
+07-07-2019 19:53:31.805 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: No active profile set, falling back to default profiles: default
+07-07-2019 19:53:32.399 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bootstrapping Spring Data repositories in DEFAULT mode.
+07-07-2019 19:53:32.495 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Finished Spring Data repository scanning in 51ms. Found 1 repository interfaces.
+07-07-2019 19:53:32.844 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$92c78749] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+07-07-2019 19:53:33.138 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Tomcat initialized with port(s): 8080 (http)
+07-07-2019 19:53:33.172 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting service [Tomcat]
+07-07-2019 19:53:33.173 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Starting Servlet engine: [Apache Tomcat/9.0.21]
+07-07-2019 19:53:33.279 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing Spring embedded WebApplicationContext
+07-07-2019 19:53:33.280 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Root WebApplicationContext: initialization completed in 1427 ms
+07-07-2019 19:53:33.484 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Starting...
+07-07-2019 19:53:33.659 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HikariPool-1 - Start completed.
+07-07-2019 19:53:33.722 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-07-07-2019 14:04:33.378 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000412: Hibernate Core {5.3.10.Final}
-07-07-2019 14:04:33.381 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000206: hibernate.properties not found
-07-07-2019 14:04:33.770 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-07-07-2019 14:04:33.918 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-07-07-2019 14:04:34.493 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@e064e03'
-07-07-2019 14:04:34.496 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initialized JPA EntityManagerFactory for persistence unit 'default'
-07-07-2019 14:04:34.968 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Initializing ExecutorService 'applicationTaskExecutor'
-07-07-2019 14:04:35.024 || HILO: [main] || NIVEL:  [31mWARN [0;39m|| MSG DE LOG: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-07-07-2019 14:04:35.297 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Tomcat started on port(s): 8080 (http) with context path ''
-07-07-2019 14:04:35.300 || HILO: [main] || NIVEL:  [34mINFO [0;39m|| MSG DE LOG: Started Application in 4.465 seconds (JVM running for 8.673)
+07-07-2019 19:53:33.803 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000412: Hibernate Core {5.3.10.Final}
+07-07-2019 19:53:33.804 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000206: hibernate.properties not found
+07-07-2019 19:53:34.176 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+07-07-2019 19:53:34.320 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+07-07-2019 19:53:34.915 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5795dffe'
+07-07-2019 19:53:34.917 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initialized JPA EntityManagerFactory for persistence unit 'default'
+07-07-2019 19:53:35.421 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing ExecutorService 'applicationTaskExecutor'
+07-07-2019 19:53:35.475 || THREAD: [main] || LEVEL:  [31mWARN [0;39m|| LOG MSG: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07-07-2019 19:53:35.733 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Tomcat started on port(s): 8080 (http) with context path ''
+07-07-2019 19:53:35.740 || THREAD: [main] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Started Application in 4.404 seconds (JVM running for 8.552)
+07-07-2019 19:53:49.759 || THREAD: [http-nio-8080-exec-2] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing Spring DispatcherServlet 'dispatcherServlet'
+07-07-2019 19:53:49.764 || THREAD: [http-nio-8080-exec-2] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Initializing Servlet 'dispatcherServlet'
+07-07-2019 19:53:49.775 || THREAD: [http-nio-8080-exec-2] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Completed initialization in 11 ms
+07-07-2019 19:53:49.885 || THREAD: [http-nio-8080-exec-2] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaController.createPersona(PersonaDTO): Persona [id=null, nombre=Almu, tlf=687242325]
+07-07-2019 19:53:49.885 || THREAD: [http-nio-8080-exec-2] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=Almu, tlf=687242325]
+07-07-2019 19:53:49.890 || THREAD: [http-nio-8080-exec-2] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Request :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=Almu, tlf=687242325]
+07-07-2019 19:53:49.946 || THREAD: [http-nio-8080-exec-2] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Response :: PersonaService.createPersona(PersonaDTO): Persona [id=1, nombre=Almu, tlf=687242325]
+07-07-2019 19:53:49.947 || THREAD: [http-nio-8080-exec-2] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaService.createPersona(PersonaDTO): Persona [id=1, nombre=Almu, tlf=687242325]
+07-07-2019 19:53:49.947 || THREAD: [http-nio-8080-exec-2] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaController.createPersona(PersonaDTO): Persona [id=1, nombre=Almu, tlf=687242325]
+07-07-2019 19:53:56.985 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaController.createPersona(PersonaDTO): Persona [id=null, nombre=David, tlf=617052929]
+07-07-2019 19:53:56.992 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=David, tlf=617052929]
+07-07-2019 19:53:56.999 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Request :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=David, tlf=617052929]
+07-07-2019 19:53:57.001 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Response :: PersonaService.createPersona(PersonaDTO): Persona [id=2, nombre=David, tlf=617052929]
+07-07-2019 19:53:57.006 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaService.createPersona(PersonaDTO): Persona [id=2, nombre=David, tlf=617052929]
+07-07-2019 19:53:57.006 || THREAD: [http-nio-8080-exec-3] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaController.createPersona(PersonaDTO): Persona [id=2, nombre=David, tlf=617052929]
+07-07-2019 19:54:02.353 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaController.createPersona(PersonaDTO): Persona [id=null, nombre=Javier, tlf=615152884]
+07-07-2019 19:54:02.359 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Inicio :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=Javier, tlf=615152884]
+07-07-2019 19:54:02.364 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Request :: PersonaService.createPersona(PersonaDTO): Persona [id=null, nombre=Javier, tlf=615152884]
+07-07-2019 19:54:02.366 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Response :: PersonaService.createPersona(PersonaDTO): Persona [id=3, nombre=Javier, tlf=615152884]
+07-07-2019 19:54:02.367 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaService.createPersona(PersonaDTO): Persona [id=3, nombre=Javier, tlf=615152884]
+07-07-2019 19:54:02.367 || THREAD: [http-nio-8080-exec-4] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Fin :: PersonaController.createPersona(PersonaDTO): Persona [id=3, nombre=Javier, tlf=615152884]
+07-07-2019 19:55:29.659 || THREAD: [http-nio-8080-exec-8] || LEVEL:  [34mINFO [0;39m|| LOG MSG: HHH000397: Using ASTQueryTranslatorFactory
+07-07-2019 19:55:29.797 || THREAD: [http-nio-8080-exec-8] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Persona de la lista:Persona [id=1, nombre=Almu, tlf=687242325]
+07-07-2019 19:55:29.808 || THREAD: [http-nio-8080-exec-8] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Persona de la lista:Persona [id=2, nombre=David, tlf=617052929]
+07-07-2019 19:55:29.808 || THREAD: [http-nio-8080-exec-8] || LEVEL:  [34mINFO [0;39m|| LOG MSG: Persona de la lista:Persona [id=3, nombre=Javier, tlf=615152884]

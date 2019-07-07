@@ -6,13 +6,17 @@ public class PersonaDTO {
 	private String nombre;
 	private String tlf;
 	
-	
+
 	public PersonaDTO(Long id, String nombre, String tlf) {
 		this.id = id;
 		this.nombre = nombre;
 		this.tlf = tlf;
 	}
+	
 
+	public PersonaDTO() {
+		super();
+	}
 
 	public Long getId() {
 		return id;

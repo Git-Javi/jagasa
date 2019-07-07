@@ -11,10 +11,8 @@ public class Persona {
 
 	@Id
 	@GeneratedValue
-	private Long id;
-	
+	private Long id;	
 	private String nombre;
-
 	private String tlf;
 	
 	public Persona() {
