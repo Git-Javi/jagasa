@@ -26,19 +26,16 @@ public class PersonaServiceImplementation implements PersonaService {
 
 	@Override
 	public PersonaDTO createPersona(PersonaDTO persona) {
-		//System.out.println("Inicio :: PersonaService.createPersona(PersonaDTO): " + persona);
+		
 		LOGGER.info("Inicio :: PersonaService.createPersona(PersonaDTO): {}", persona);
 
-		Persona personaRequest = new Persona(persona.getNombre(), persona.getTlf());
-		//System.out.println("Request :: PersonaService.createPersona(PersonaDTO): " + personaRequest);
+		Persona personaRequest = personaMapper.personaDTOtoPersona(persona);
 		LOGGER.info("Request :: PersonaService.createPersona(PersonaDTO): {}", personaRequest);
 
 		Persona personaResponse = personaRepository.save(personaRequest);
-		//System.out.println("Response :: PersonaService.createPersona(PersonaDTO): " + personaResponse);
 		LOGGER.info("Response :: PersonaService.createPersona(PersonaDTO): {}", personaResponse);
 
-		PersonaDTO result = new PersonaDTO(personaResponse.getId(), personaResponse.getNombre(), personaResponse.getTlf());
-		//System.out.println("Fin :: PersonaService.createPersona(PersonaDTO): " + result);
+		PersonaDTO result = personaMapper.personaToPersonaDTO(personaResponse);
 		LOGGER.info("Fin :: PersonaService.createPersona(PersonaDTO): {}", result);
 
 		return result;
@@ -53,8 +50,7 @@ public class PersonaServiceImplementation implements PersonaService {
 		listaPersonas.addAll((List<Persona>) personaRepository.findAll());
 
 		for (Persona p : listaPersonas) {
-
-			//PersonaDTO pDTO = new PersonaDTO(p.getId(), p.getNombre(), p.getTlf());
+			
 			PersonaDTO pDTO = personaMapper.personaToPersonaDTO(p);
 			listaPersonasDTO.add(pDTO);
 		}
@@ -67,7 +63,6 @@ public class PersonaServiceImplementation implements PersonaService {
 
 		Persona p = personaRepository.findById(id).get();
 
-		//PersonaDTO pDTO = new PersonaDTO(p.getId(), p.getNombre(), p.getTlf());
 		PersonaDTO pDTO = personaMapper.personaToPersonaDTO(p);
 
 		return pDTO;

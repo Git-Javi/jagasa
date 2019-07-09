@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.api.dto.PersonaDTO;
 import app.service.PersonaService;
-import app.service.PersonaServiceImplementation;
 
 @RestController
 public class PersonaController {
@@ -27,11 +26,10 @@ public class PersonaController {
 	@RequestMapping("/persona")
 	public PersonaDTO createPersona(@RequestBody PersonaDTO persona) {
 
-		//System.out.println("Inicio :: PersonaController.createPersona(PersonaDTO): " + persona);
 		LOGGER.info("Inicio :: PersonaController.createPersona(PersonaDTO): {}", persona);
 
 		PersonaDTO result = personaService.createPersona(persona);
-		//System.out.println("Fin :: PersonaController.createPersona(PersonaDTO): " + result);
+		
 		LOGGER.info("Fin :: PersonaController.createPersona(PersonaDTO): {}", result);
 
 		return result;
@@ -46,7 +44,6 @@ public class PersonaController {
 
 		for (PersonaDTO p : listaPersonasDTO) {
 
-			//System.out.println(p);
 			LOGGER.info("Persona de la lista: {}", p);
 		}
 
