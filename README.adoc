@@ -1,7 +1,7 @@
 Rama Master.
 Se hace push del proyecto con los siguientes puntos completados:
 
-- Alta de un nuevo proyecto en githun y compartir con tenrylm@gmail.com
+- Alta de un nuevo proyecto en github y compartir.
 - Creado un proyecto maven con el spring boot inizialyzer y se realiza de nuevo todo el trabajo realizado hasta entonces con el proyecto de https://spring.io/guides/gs/rest-service/
 - Crear rama para desarrollar sin ser en master.
 - Generar un controller /persona que mediante un POST reciba un DTO persona y lo pinte en consola. Para lanzar la llamada puedes usar [postman|soapui|curl]
