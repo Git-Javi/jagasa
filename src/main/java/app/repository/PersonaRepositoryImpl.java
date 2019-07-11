@@ -1,3 +1,4 @@
+package app.repository;
 //package app.repository;
 //
 //import org.apache.logging.log4j.LogManager;
@@ -5,7 +6,7 @@
 //import org.springframework.stereotype.Repository;
 //import org.springframework.stereotype.Service;
 //
-//import app.api.dto.PersonaDTO;
+//import app.api.dto.PersonaDto;
 //import app.controller.PersonaController;
 //import app.model.entity.Persona;
 //
@@ -15,11 +16,11 @@
 //	private static Logger log = LogManager.getLogger(PersonaController.class);
 //
 //	@Override
-//	public PersonaDTO pintaLog(Persona unaPersona) {
+//	public PersonaDto pintaLog(Persona unaPersona) {
 //
 //		log.info(unaPersona.toString());
 //
-//		PersonaDTO unaPersonaDTO = new PersonaDTO(unaPersona.getId(), unaPersona.getNombre(), unaPersona.getTlf());
+//		PersonaDto unaPersonaDTO = new PersonaDto(unaPersona.getId(), unaPersona.getNombre(), unaPersona.getTlf());
 //
 //		return unaPersonaDTO;
 //	}

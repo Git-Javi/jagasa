@@ -2,14 +2,14 @@ package app.service;
 
 import java.util.List;
 
-import app.api.dto.PersonaDTO;
+import app.api.dto.PersonaDto;
 
 public interface PersonaService {
 
-	PersonaDTO createPersona(PersonaDTO persona);
+	PersonaDto createPersona(PersonaDto persona);
 	
-	List<PersonaDTO> showPersonas();
+	List<PersonaDto> showPersonas();
 	
-	PersonaDTO findPersonaPorId(Long id);
+	PersonaDto findPersonaPorId(Long id);
 	
 }

@@ -1,20 +1,20 @@
 package app.api.dto;
 
-public class PersonaDTO {
+public class PersonaDto {
 
 	private Long id;
 	private String nombre;
 	private String tlf;
 	
 
-	public PersonaDTO(Long id, String nombre, String tlf) {
+	public PersonaDto(Long id, String nombre, String tlf) {
 		this.id = id;
 		this.nombre = nombre;
 		this.tlf = tlf;
 	}
 	
 
-	public PersonaDTO() {
+	public PersonaDto() {
 		super();
 	}
 

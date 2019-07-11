@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.api.dto.PersonaDTO;
+import app.api.dto.PersonaDto;
 import app.service.PersonaService;
 
 @RestController
@@ -24,25 +24,25 @@ public class PersonaController {
 	private PersonaService personaService;
 
 	@RequestMapping("/persona")
-	public PersonaDTO createPersona(@RequestBody PersonaDTO persona) {
+	public PersonaDto createPersona(@RequestBody PersonaDto persona) {
 
-		LOGGER.info("Inicio :: PersonaController.createPersona(PersonaDTO): {}", persona);
+		LOGGER.info("Inicio :: PersonaController.createPersona(PersonaDto): {}", persona);
 
-		PersonaDTO result = personaService.createPersona(persona);
+		PersonaDto result = personaService.createPersona(persona);
 		
-		LOGGER.info("Fin :: PersonaController.createPersona(PersonaDTO): {}", result);
+		LOGGER.info("Fin :: PersonaController.createPersona(PersonaDto): {}", result);
 
 		return result;
 	}
 
 	@GetMapping("/personas")
-	public List<PersonaDTO> showPersonas() {
+	public List<PersonaDto> showPersonas() {
 
-		List<PersonaDTO> listaPersonasDTO = new ArrayList<>();
+		List<PersonaDto> listaPersonasDTO = new ArrayList<>();
 
 		listaPersonasDTO.addAll(personaService.showPersonas());
 
-		for (PersonaDTO p : listaPersonasDTO) {
+		for (PersonaDto p : listaPersonasDTO) {
 
 			LOGGER.info("Persona de la lista: {}", p);
 		}
@@ -51,7 +51,7 @@ public class PersonaController {
 	}
 
 	@GetMapping("/persona/{id}")
-	public PersonaDTO getPerson(@PathVariable("id") Long id) {
+	public PersonaDto getPerson(@PathVariable("id") Long id) {
 
 		return personaService.findPersonaPorId(id);
 	}
