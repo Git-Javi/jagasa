@@ -3,8 +3,6 @@ package app.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +10,11 @@ import app.api.dto.PersonaDto;
 import app.mapper.PersonaMapper;
 import app.model.entity.Persona;
 import app.repository.PersonaRepository;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class PersonaServiceImpl implements PersonaService {
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(PersonaServiceImpl.class);
 
 	@Autowired
 	private PersonaRepository personaRepository;
@@ -27,16 +25,16 @@ public class PersonaServiceImpl implements PersonaService {
 	@Override
 	public PersonaDto createPersona(PersonaDto persona) {
 		
-		LOGGER.info("Inicio :: PersonaService.createPersona(PersonaDto): {}", persona);
+		log.info("Inicio :: PersonaService.createPersona(PersonaDto): {}", persona);
 
 		Persona personaRequest = personaMapper.personaDtoToPersona(persona);
-		LOGGER.info("Request :: PersonaService.createPersona(PersonaDto): {}", personaRequest);
+		log.info("Request :: PersonaService.createPersona(PersonaDto): {}", personaRequest);
 
 		Persona personaResponse = personaRepository.save(personaRequest);
-		LOGGER.info("Response :: PersonaService.createPersona(PersonaDto): {}", personaResponse);
+		log.info("Response :: PersonaService.createPersona(PersonaDto): {}", personaResponse);
 
 		PersonaDto result = personaMapper.personaToPersonaDto(personaResponse);
-		LOGGER.info("Fin :: PersonaService.createPersona(PersonaDto): {}", result);
+		log.info("Fin :: PersonaService.createPersona(PersonaDto): {}", result);
 
 		return result;
 	}
