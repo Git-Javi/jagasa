@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.api.dto.PersonaDto;
 import app.service.PersonaService;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -21,6 +22,7 @@ public class PersonaController {
 	@Autowired
 	private PersonaService personaService;
 
+	@ApiOperation("Crea una persona en la BDD")
 	@RequestMapping("/persona")
 	public PersonaDto createPersona(@RequestBody PersonaDto persona) {
 
@@ -33,6 +35,7 @@ public class PersonaController {
 		return result;
 	}
 
+	@ApiOperation("Muestra las personas en la BDD")
 	@GetMapping("/personas")
 	public List<PersonaDto> showPersonas() {
 
@@ -48,6 +51,7 @@ public class PersonaController {
 		return listaPersonasDTO;
 	}
 
+	@ApiOperation("Muestra una persona por id de la BDD")
 	@GetMapping("/persona/{id}")
 	public PersonaDto getPerson(@PathVariable("id") Long id) {
 
