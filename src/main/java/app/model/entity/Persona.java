@@ -7,10 +7,15 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "PERSONA")
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class Persona {
 
 	@Id
@@ -18,9 +23,11 @@ public class Persona {
 	private Long id;
 
 	@NotBlank
+	@NonNull
 	private String nombre;
 
 	@NotBlank
-	private String tlf;
+	@NonNull
+	private String telefono;
 
 }

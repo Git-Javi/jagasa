@@ -40,30 +40,30 @@ public class PersonaServiceImpl implements PersonaService {
 	}
 
 	@Override
-	public List<PersonaDto> showPersonas() {
+	public List<PersonaDto> findPersonas() {
 
-		List<PersonaDto> listaPersonasDTO = new ArrayList<>();
+		List<PersonaDto> listaPersonasDto = new ArrayList<>();
 		List<Persona> listaPersonas = new ArrayList<>();
 
 		listaPersonas.addAll((List<Persona>) personaRepository.findAll());
 
 		for (Persona p : listaPersonas) {
 			
-			PersonaDto pDTO = personaMapper.personaToPersonaDto(p);
-			listaPersonasDTO.add(pDTO);
+			PersonaDto pDto = personaMapper.personaToPersonaDto(p);
+			listaPersonasDto.add(pDto);
 		}
 
-		return listaPersonasDTO;
+		return listaPersonasDto;
 	}
 
 	@Override
-	public PersonaDto findPersonaPorId(Long id) {
+	public PersonaDto findPersonaById(Long id) {
 
 		Persona p = personaRepository.findById(id).get();
 
-		PersonaDto pDTO = personaMapper.personaToPersonaDto(p);
+		PersonaDto pDto = personaMapper.personaToPersonaDto(p);
 
-		return pDTO;
+		return pDto;
 	}
 
 }

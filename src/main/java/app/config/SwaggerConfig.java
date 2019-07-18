@@ -29,10 +29,12 @@ public class SwaggerConfig {
 	private ApiInfo apiInfo() {
 
 		return new ApiInfoBuilder()
-				.title("API REST de Personas")
+				.title("Aplicación Control horario")
 				.version("1.0")
 				.license("(Licencia)")
-				.description("API RESTful de personas con BDD en memoria")
+				.description("API para control horario de trabajadores")
 				.build();
 	}
 }
+
+		

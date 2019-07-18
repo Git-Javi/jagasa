@@ -8,8 +8,8 @@ public interface PersonaService {
 
 	PersonaDto createPersona(PersonaDto persona);
 	
-	List<PersonaDto> showPersonas();
+	List<PersonaDto> findPersonas();
 	
-	PersonaDto findPersonaPorId(Long id);
+	PersonaDto findPersonaById(Long id);
 	
 }
