@@ -16,7 +16,7 @@ import app.model.entity.Persona;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = { Application.class }) //@SpringBootTest	q Le dice al test que cargue todo el Contexto de Spring (beans) cada vez que se ejecute esta prueba.
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = { Application.class }) //@SpringBootTest Le dice al test que cargue todo el Contexto de Spring (beans) cada vez que se ejecute esta prueba.
 @EnableAutoConfiguration 
 public class PersonaMapperTest {
 	

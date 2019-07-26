@@ -22,10 +22,10 @@ public class SwaggerConfig {
 				.apiInfo(apiInfo())
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("app.controller"))
-				.paths(PathSelectors.regex("/persona.*"))
+				.paths(PathSelectors.regex("/api/persona.*"))
 				.build();
-	}
-
+	}    
+	    
 	private ApiInfo apiInfo() {
 
 		return new ApiInfoBuilder()
@@ -35,6 +35,7 @@ public class SwaggerConfig {
 				.description("API para control horario de trabajadores")
 				.build();
 	}
+
 }
 
 		
