@@ -2,17 +2,17 @@ package app.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.api.dto.PersonaDto;
-import app.repository.PersonaRepository;
 import app.service.PersonaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -42,9 +41,7 @@ public class PersonaController {
 	public PersonaDto createPersona(@RequestBody @Valid @NotNull PersonaDto persona) {
 
 		log.info("Inicio :: PersonaController.createPersona(PersonaDto): {}", persona);
-
 		PersonaDto result = personaService.createPersona(persona);
-
 		log.info("Fin :: PersonaController.createPersona(PersonaDto): {}", result);
 
 		return result;
@@ -55,11 +52,9 @@ public class PersonaController {
 	public List<PersonaDto> showPersonas() {
 
 		List<PersonaDto> listaPersonasDto = new ArrayList<>();
-
 		listaPersonasDto.addAll(personaService.findPersonas());
 
 		for (PersonaDto p : listaPersonasDto) {
-
 			log.info("Persona de la lista: {}", p);
 		}
 
@@ -75,8 +70,7 @@ public class PersonaController {
 
 	@ApiOperation("Actualiza todos los datos de una persona por id")
 	@PutMapping("/persona/{id}")
-	public PersonaDto updatePersona(
-			@PathVariable("id") @NotNull @Positive Long id,
+	public PersonaDto updatePersona(@PathVariable("id") @NotNull @Positive Long id,
 			@RequestBody @Valid @NotNull PersonaDto persona) {
 
 		return personaService.updatePersonaById(id, persona);
@@ -88,23 +82,17 @@ public class PersonaController {
 
 		personaService.deletePersonaById(id);
 	}
-	
-	
 
+	@ApiOperation("Actualiza parcialmente una persona")
+	@PatchMapping(value = "/persona/{id}")
+	public PersonaDto patchPersona(@PathVariable("id") @NotNull @Positive Long id,
+			@RequestBody Map<String, Object> fields) {
 
-//	@ApiOperation("Actualiza todos los datos de una persona por id")
-//	@PutMapping("/persona/{id}/{nombre}/{telefono}")
-//	public PersonaDto updatePersona(
-//			@PathVariable("id") @NotNull @Positive Long id,
-//			@PathVariable("nombre") @NotNull @Positive String nombre,
-//			@PathVariable("telefono") @NotNull @Positive String telefono
-//			) {
-//
-//		return personaService.findPersonaById(id);
-//	}
+		return personaService.updatePersonaFieldsById(id, fields);
+	}
 
 //-----------------------------------------------------------------------------------------------------------------------------
-	
+
 //  // Manejador para la excepción lanzada cuando no cumple con las constraint
 //	@ExceptionHandler(MethodArgumentNotValidException.class)
 //	@ResponseStatus(value = HttpStatus.BAD_REQUEST) // Con ésta notación corrijo el problemas de que me muestre el mensaje pero con status 200

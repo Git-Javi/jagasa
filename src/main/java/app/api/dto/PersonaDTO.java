@@ -2,8 +2,9 @@ package app.api.dto;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import app.annotation.Phone;
+import app.annotation.contraint.Phone;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiModelProperty.AccessMode;
@@ -22,12 +23,14 @@ public class PersonaDto {
 	private Long id;
 	
 	@NotBlank(message = "Debe indicar el nombre de la persona.")
+	@NotNull
 	@ApiModelProperty(value = "El nombre de la Persona", required = true)
 	@Column(name = "nombre", nullable = false)
 	private String nombre;
 	
 	@Phone
 	@NotBlank(message = "Debe indicar el teléfono de la persona.")
+	@NotNull
 	@ApiModelProperty(value = "El teléfono de la Persona", required = true)
 	@Column(name = "telefono", nullable = false)
 	private String telefono;

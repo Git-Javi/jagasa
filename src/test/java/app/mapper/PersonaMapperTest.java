@@ -24,7 +24,7 @@ public class PersonaMapperTest {
 	PersonaMapper personaMapper;
 
 	@Test
-	public void ComprobarCamposConversionPersonaToPersonaDto() {
+	public void comprobarCamposConversionPersonaToPersonaDto() {
 
 		Persona persona = new Persona("PepeTest", "981223344");
 		
@@ -37,7 +37,7 @@ public class PersonaMapperTest {
 	}
 	
 	@Test
-	public void ComprobarCamposConversionPersonaDtoToPersona() {
+	public void comprobarCamposConversionPersonaDtoToPersona() {
 
 		PersonaDto personaDto = new PersonaDto(1L,"ManoloTest", "987456123");
 		
@@ -49,6 +49,21 @@ public class PersonaMapperTest {
 		
 	}
 
+	
+	@Test
+	public void comprobarMapperIgnoraIdEnConversion() {
+		
+		Persona persona = new Persona();
+		PersonaDto personaDto = new PersonaDto(3L,"PepeTest", "999888777");
+		
+		persona = personaMapper.mergePersonaIdAndPersonaDtoToPersona(1l,personaDto);
+		
+		assertEquals("El id ha de ser 3", "3L", persona.getId());
+		assertEquals("El nombre debe ser el mismo", "PepeTest", persona.getNombre());
+		assertEquals("El telefono debe ser el mismo", "999888777", persona.getTelefono());
+		
+	}
+	
 	
 //	@Test
 //	public void restarValorMenorDeberiaDevolverPositivo() {
