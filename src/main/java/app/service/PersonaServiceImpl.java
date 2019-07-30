@@ -10,9 +10,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.util.ReflectionUtils;
+//import org.springframework.data.util.ReflectionUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import app.api.dto.PersonaDto;
 import app.mapper.PersonaMapper;
@@ -94,22 +97,54 @@ public class PersonaServiceImpl implements PersonaService {
 
 	}
 
+//	@Override
+//	public PersonaDto updatePersonaFieldsById(@NotNull @Positive Long id, Map<String, Object> fields) {
+//
+//		personaExists(id);
+//		PersonaDto pDto = personaFind(id);
+//
+//		fields.forEach((k, v) -> {
+//			Field field = ReflectionUtils.findRequiredField(PersonaDto.class, k);
+//			
+//			if (field.getName().equals("id")) {
+//				ReflectionUtils.setField(field, pDto, (Long) v);
+//			} else {
+//				ReflectionUtils.setField(field, pDto, v);
+//			}
+//		});
+//
+//		PersonaDto personaDtoDevuelta = personaSave(pDto);
+//
+//		return personaDtoDevuelta;
+//
+//	}
+	
 	@Override
 	public PersonaDto updatePersonaFieldsById(@NotNull @Positive Long id, Map<String, Object> fields) {
-
+		// Comprobamos que la persona exista
 		personaExists(id);
-		PersonaDto pDto = personaFind(id);
-
+		// Recuperamos la persona de BBD
+		PersonaDto persona = personaFind(id);
+		// Mapeamos los campos sobre una persona
+		final ObjectMapper mapper = new ObjectMapper();
+	    final PersonaDto personaNew = mapper.convertValue(fields, PersonaDto.class);
+	    // Recorremos los campos
 		fields.forEach((k, v) -> {
-			Field field = ReflectionUtils.findRequiredField(PersonaDto.class, k);
-			ReflectionUtils.setField(field, pDto, v);
+			// Obtenemos el campo
+			Field field = ReflectionUtils.findField(PersonaDto.class, k);
+			if(field == null) {
+				throw new RuntimeException("El campo {} no existe en la clase");
+			}
+			// Guadamos en el campo del objeto original el valor del objeto mapeado
+			ReflectionUtils.makeAccessible(field); // Es necesario para que permita accerder al campo ya que en nuestra entidad es privado
+			ReflectionUtils.setField(field, persona, ReflectionUtils.getField(field, personaNew));
 		});
-
-		PersonaDto personaDtoDevuelta = personaSave(pDto);
-
-		return personaDtoDevuelta;
-
+		PersonaDto result = personaSave(persona);
+		return result;
 	}
+	
+	
+	
 
 	@Override
 	public void personaExists(@NotNull @Positive Long id) {

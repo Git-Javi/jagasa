@@ -56,9 +56,9 @@ public class PersonaMapperTest {
 		Persona persona = new Persona();
 		PersonaDto personaDto = new PersonaDto(3L,"PepeTest", "999888777");
 		
-		persona = personaMapper.mergePersonaIdAndPersonaDtoToPersona(1l,personaDto);
+		persona = personaMapper.mergePersonaIdAndPersonaDtoToPersona(1L,personaDto);
 		
-		assertEquals("El id ha de ser 3", "3L", persona.getId());
+		assertEquals("El id ha de ser 1", Long.valueOf(1), persona.getId());
 		assertEquals("El nombre debe ser el mismo", "PepeTest", persona.getNombre());
 		assertEquals("El telefono debe ser el mismo", "999888777", persona.getTelefono());
 		

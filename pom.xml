@@ -20,6 +20,7 @@
 		<org.mapstruct.version>1.3.0.Final</org.mapstruct.version>
 		<org.projectlombok.version>1.18.8</org.projectlombok.version>
 		<io.springfox.version>2.9.2</io.springfox.version>
+		<com.fasterxml.jackson.core.version>2.10.0.pr1</com.fasterxml.jackson.core.version>
 	</properties>
 
 	<dependencies>
@@ -77,6 +78,14 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>${io.springfox.version}</version>
+		</dependency>
+
+		<!-- ======================== Jackson ======================== -->
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${com.fasterxml.jackson.core.version}</version>
 		</dependency>
 
 	</dependencies>
