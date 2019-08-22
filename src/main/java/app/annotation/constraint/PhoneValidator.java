@@ -1,4 +1,4 @@
-package app.annotation.contraint;
+package app.annotation.constraint;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

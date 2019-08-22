@@ -20,6 +20,7 @@ public class SwaggerConfig {
 
 		return new Docket(DocumentationType.SWAGGER_2)
 				.apiInfo(apiInfo())
+				.useDefaultResponseMessages(false)
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("app.controller"))
 				.paths(PathSelectors.regex("/api/persona.*"))

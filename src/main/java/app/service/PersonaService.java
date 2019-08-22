@@ -29,5 +29,7 @@ public interface PersonaService {
 	
 	public PersonaDto personaSave(@Valid @NotNull PersonaDto personaDto);
 	
+	public PersonaDto personaMergeIdSave(@NotNull @Positive Long id, @Valid @NotNull PersonaDto personaDto);
+	
 	
 }

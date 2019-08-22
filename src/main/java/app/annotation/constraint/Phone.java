@@ -1,4 +1,4 @@
-package app.annotation.contraint;
+package app.annotation.constraint;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

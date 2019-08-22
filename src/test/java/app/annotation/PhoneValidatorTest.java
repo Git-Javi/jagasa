@@ -1,5 +1,8 @@
 package app.annotation;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import javax.validation.ConstraintViolationException;
 
 import org.junit.Test;
@@ -21,50 +24,45 @@ public class PhoneValidatorTest {
 	@Autowired
 	PersonaService personaService;
 
+	@Autowired
+	AnnotationServiceImpl annotationServiceImpl;
+
 	PersonaDto personaTest = new PersonaDto();
 
-	@Test(expected = ConstraintViolationException.class)
+	@Test (expected = ConstraintViolationException.class)
 	public void comprobarConstraintTelefonoMenosOchoDígitos() {
 
-		personaTest.setId(1l);
-		personaTest.setNombre("Manolo");
-		personaTest.setTelefono("7654321");
-
-		personaService.createPersona(personaTest);
-
+		String telefono = "7654321";
+		annotationServiceImpl.telefonoTester(telefono);
 	}
 
 	@Test(expected = ConstraintViolationException.class)
 	public void comprobarConstraintTelefonoMasNueveDígitos() {
 
-		personaTest.setId(1l);
-		personaTest.setNombre("Manolo");
-		personaTest.setTelefono("9876543210");
+		String telefono = "9876543210";
+		annotationServiceImpl.telefonoTester(telefono);
+	}
+	
+	@Test
+	public void comprobarConstraintTelefonoPermiteNull() {
 
-		personaService.createPersona(personaTest);
-
+		String telefonoTest = null;
+		String telefono = annotationServiceImpl.telefonoTester(telefonoTest);
+		assertNull("El teléfono devuelto ha de ser null", telefono);
 	}
 
 	@Test(expected = ConstraintViolationException.class)
-	public void comprobarConstraintTelefonoIntroducirValoresDistintosDeNumeros() {
+	public void comprobarConstraintTelefonoIntroducirValoresDistintosANumeros() {
 
-		personaTest.setId(1l);
-		personaTest.setNombre("Manolo");
-		personaTest.setTelefono("abcde678");
-
-		personaService.createPersona(personaTest);
-
+		String telefono = "abcde678";
+		annotationServiceImpl.telefonoTester(telefono);
 	}
 
 	@Test(expected = ConstraintViolationException.class)
 	public void comprobarConstraintTelefonoIntroducirNumeroQueEmpiecePorNumeroDistintoDeSeisSieteOchoNueve() {
 
-		personaTest.setId(1l);
-		personaTest.setNombre("Manolo");
-		personaTest.setTelefono("12345678");
-
-		personaService.createPersona(personaTest);
-
+		String telefono = "12345678";
+		annotationServiceImpl.telefonoTester(telefono);
 	}
 
 	@Test
@@ -75,7 +73,7 @@ public class PhoneValidatorTest {
 		personaTest.setTelefono("666333222");
 
 		personaService.createPersona(personaTest);
-
+		assertEquals("El telefono es válido y la persona lo devolverá con el get", "666333222", personaTest.getTelefono());
 	}
 
 	@Test
@@ -86,6 +84,7 @@ public class PhoneValidatorTest {
 		personaTest.setTelefono("91232425");
 
 		personaService.createPersona(personaTest);
-
+		assertEquals("El telefono es válido y la persona lo devolverá con el get", "91232425", personaTest.getTelefono());
 	}
+	
 }
