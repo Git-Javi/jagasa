@@ -21,6 +21,7 @@
 		<org.projectlombok.version>1.18.8</org.projectlombok.version>
 		<io.springfox.version>2.9.2</io.springfox.version>
 		<com.fasterxml.jackson.core.version>2.10.0.pr1</com.fasterxml.jackson.core.version>
+		<org.apache.httpcomponents.version>4.5.9</org.apache.httpcomponents.version>
 	</properties>
 
 	<dependencies>
@@ -87,6 +88,15 @@
 			<artifactId>jackson-core</artifactId>
 			<version>${com.fasterxml.jackson.core.version}</version>
 		</dependency>
+
+		<!-- ======================== HttpClient ======================== -->
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${org.apache.httpcomponents.version}</version>
+		</dependency>
+
 
 	</dependencies>
 
