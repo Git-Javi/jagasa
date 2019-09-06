@@ -21,8 +21,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import app.Application;
 import app.api.dto.PersonaDto;
 
@@ -34,9 +32,6 @@ public class PersonaControllerRestTest {
 
 	@Autowired
 	private TestRestTemplate testRestTemplate;
-
-	@Autowired
-	private ObjectMapper objectMapper;
 
 	@LocalServerPort
 	int randomServerPort;
@@ -54,11 +49,10 @@ public class PersonaControllerRestTest {
 		PersonaDto personaRequest = new PersonaDto(null, "PostTest", "666777888");
 		String URL = "http://localhost:" + randomServerPort + "/api/persona";
 
-		ResponseEntity<String> response = testRestTemplate.postForEntity(URL, personaRequest, String.class);
-		PersonaDto personaResponse = objectMapper.readValue(response.getBody(), PersonaDto.class);
+		ResponseEntity<PersonaDto> response = testRestTemplate.postForEntity(URL, personaRequest, PersonaDto.class);
 
 		assertEquals(HttpStatus.CREATED, response.getStatusCode());
-		assertEquals(new PersonaDto(1L, "PostTest", "666777888"), personaResponse);
+		assertEquals(new PersonaDto(1L, "PostTest", "666777888"), response.getBody());
 	}
 
 	// ---------------------------------------GET(ById)---------------------------------------

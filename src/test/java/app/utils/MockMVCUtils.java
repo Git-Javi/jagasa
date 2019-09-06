@@ -19,7 +19,7 @@ public class MockMVCUtils {
 	private ObjectMapper objectMapper;
 
 	// Testea con MockMvc respuestas que no requieren carga útil en la petición
-	public <T> String controllerResponseTesterNoPayloadUtil(MockMvc mockMvc, MockHttpServletRequestBuilder requestBuilder, HttpStatus httpStatus)
+	public String controllerResponseTesterNoPayloadUtil(MockMvc mockMvc, MockHttpServletRequestBuilder requestBuilder, HttpStatus httpStatus)
 			throws Exception {
 
 		String response = mockMvc.perform(requestBuilder).andExpect(status().is(httpStatus.value())).andReturn().getResponse().getContentAsString();
