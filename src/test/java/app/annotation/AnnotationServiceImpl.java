@@ -3,6 +3,7 @@ package app.annotation;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import app.annotation.constraint.Dni;
 import app.annotation.constraint.Phone;
 
 @Validated
@@ -15,5 +16,10 @@ public class AnnotationServiceImpl implements AnnotationService {
 		return telefonoTest;
 	}
 
+	@Override
+	public String dnitester(@Dni String dniTest) {
+
+		return dniTest;
+	}
 
 }

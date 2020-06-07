@@ -69,6 +69,7 @@ public class PhoneValidatorTest {
 	public void comprobarConstraintTelefonoEjemploMovilCorrecto() {
 
 		personaTest.setId(1l);
+		personaTest.setDni("44333777E");
 		personaTest.setNombre("Manolo");
 		personaTest.setTelefono("666333222");
 
@@ -80,6 +81,7 @@ public class PhoneValidatorTest {
 	public void comprobarConstraintTelefonoEjemploFijoCorrecto() {
 
 		personaTest.setId(1l);
+		personaTest.setDni("44333777E");
 		personaTest.setNombre("Manolo");
 		personaTest.setTelefono("91232425");
 

@@ -1,8 +1,13 @@
+/* Con los test en los que le pasamos un valor de 0 o negativo en el path (api/persona/0) y que vulnera la constraint @Positive que tenemos puesta 
+en nuestro controller así como cualquier método que vulnere una constraint de nuestra api desde el método PATCH, nos arrojará una excepción 
+NestedServletException (Son excepciones envueltas en otra excepción. Atrapa una excepcion (P.E ConstraintViolationException) y la arroja nuevamente
+en algún momento, pero envuelta en una ServletException.) y que si tratamos de capturar no nos realizará el .andExpect(status().is(httpStatus.value())) 
+de nuestro método utilidad correspondiente y nos dará un falso positivo ya que puede no estar arrojando el código de estado que esperamos.
+Por éste motivo dichos test, se realizaran en ésta clase valiéndonos de la clase TestRestTemplate.*/
+
 package app.controller;
 
 import static org.junit.Assert.assertEquals;
-
-//import javax.validation.ConstraintViolationException;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -46,19 +51,19 @@ public class PersonaControllerRestTest {
 	@Test
 	public void metodo02PostConIdNullDebeResponderCreatedConIdAutogeneradoTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(null, "PostTest", "666777888");
+		PersonaDto personaRequest = new PersonaDto(null, "44333222J", "PostTest", "666777888");
 		String URL = "http://localhost:" + randomServerPort + "/api/persona";
 
 		ResponseEntity<PersonaDto> response = testRestTemplate.postForEntity(URL, personaRequest, PersonaDto.class);
 
 		assertEquals(HttpStatus.CREATED, response.getStatusCode());
-		assertEquals(new PersonaDto(1L, "PostTest", "666777888"), response.getBody());
+		assertEquals(new PersonaDto(1L, "44333222J", "PostTest", "666777888"), response.getBody());
 	}
 
 	// ---------------------------------------GET(ById)---------------------------------------
 
 	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
-	public void metodo10GetConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
+	public void metodo13GetConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
 
 		String URL = "http://localhost:" + randomServerPort + "/api/persona/0";
 
@@ -69,9 +74,9 @@ public class PersonaControllerRestTest {
 	// ---------------------------------------PUT---------------------------------------
 
 	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
-	public void metodo13PutConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
+	public void metodo16PutConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PutTest", "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L, "44333222J", "PutTest", "999888777");
 		String URL = "http://localhost:" + randomServerPort + "/api/persona/0";
 
 		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
@@ -86,7 +91,7 @@ public class PersonaControllerRestTest {
 	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
 	public void metodo23PatchConIdIncorrectoeDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L, "44333222J", "PatchTest", "999888777");
 		String URL = "http://localhost:" + randomServerPort + "/api/persona/0";
 
 		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
@@ -95,9 +100,9 @@ public class PersonaControllerRestTest {
 	}
 
 	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
-	public void metodo24PatchConNombreVacioDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo24PatchConDniVacioDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "", "777777777");
+		PersonaDto personaRequest = new PersonaDto(1L, "", "PatchTest", "777777777");
 		String URL = "http://localhost:" + randomServerPort + "/api/persona/1";
 
 		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
@@ -106,9 +111,9 @@ public class PersonaControllerRestTest {
 	}
 
 	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
-	public void metodo25PatchConNombreNullDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo25PatchConDniNullDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, null, "777777777");
+		PersonaDto personaRequest = new PersonaDto(1L, null, "PatchTest", "777777777");
 		String URL = "http://localhost:" + randomServerPort + "/api/persona/1";
 
 		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
@@ -117,9 +122,9 @@ public class PersonaControllerRestTest {
 	}
 
 	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
-	public void metodo26PatchConTelefonoVacioDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo26PatchConFormatoDniIncorrectoDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", "");
+		PersonaDto personaRequest = new PersonaDto(1L, "123555J", "PatchTest", "777777777");
 		String URL = "http://localhost:" + randomServerPort + "/api/persona/1";
 
 		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
@@ -128,9 +133,9 @@ public class PersonaControllerRestTest {
 	}
 
 	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
-	public void metodo27PatchConTelefonoNullDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo27PatchConNombreVacioDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", null);
+		PersonaDto personaRequest = new PersonaDto(1L, "44333222J", "", "777777777");
 		String URL = "http://localhost:" + randomServerPort + "/api/persona/1";
 
 		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
@@ -139,9 +144,42 @@ public class PersonaControllerRestTest {
 	}
 
 	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
-	public void metodo28PatchConFormatoTelefonoIncorrectoDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo28PatchConNombreNullDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", "123456");
+		PersonaDto personaRequest = new PersonaDto(1L, "44333222J", null, "777777777");
+		String URL = "http://localhost:" + randomServerPort + "/api/persona/1";
+
+		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
+		ResponseEntity<String> response = testRestTemplate.exchange(URL, HttpMethod.PATCH, entity, String.class);
+		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+	}
+
+	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
+	public void metodo29PatchConTelefonoVacioDebeResponderInternalServerErrorTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L, "44333222J", "PatchTest", "");
+		String URL = "http://localhost:" + randomServerPort + "/api/persona/1";
+
+		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
+		ResponseEntity<String> response = testRestTemplate.exchange(URL, HttpMethod.PATCH, entity, String.class);
+		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+	}
+
+	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
+	public void metodo30PatchConTelefonoNullDebeResponderInternalServerErrorTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L, "44333222J", "PatchTest", null);
+		String URL = "http://localhost:" + randomServerPort + "/api/persona/1";
+
+		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
+		ResponseEntity<String> response = testRestTemplate.exchange(URL, HttpMethod.PATCH, entity, String.class);
+		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+	}
+
+	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
+	public void metodo31PatchConFormatoTelefonoIncorrectoDebeResponderInternalServerErrorTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L, "44333222J", "PatchTest", "123456");
 		String URL = "http://localhost:" + randomServerPort + "/api/persona/1";
 
 		HttpEntity<PersonaDto> entity = new HttpEntity<>(personaRequest);
@@ -152,7 +190,7 @@ public class PersonaControllerRestTest {
 	// ---------------------------------------DELETE---------------------------------------
 
 	@Test // (expected = ConstraintViolationException.class) // Genera java.lang.AssertionError
-	public void metodo33DeleteConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
+	public void metodo37DeleteConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
 
 		String URL = "http://localhost:" + randomServerPort + "/api/persona/0";
 

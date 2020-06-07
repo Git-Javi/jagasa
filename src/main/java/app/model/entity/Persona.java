@@ -23,6 +23,11 @@ public class Persona {
 	@GeneratedValue
 	@Column(name = "id", nullable = false)
 	private Long id;
+	
+	@NotBlank
+	@NonNull
+	@Column(name = "dni", nullable = false)
+	private String dni;
 
 	@NotBlank
 	@NonNull

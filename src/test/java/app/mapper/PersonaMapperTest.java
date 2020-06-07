@@ -26,24 +26,26 @@ public class PersonaMapperTest {
 	@Test
 	public void comprobarCamposConversionPersonaToPersonaDto() {
 
-		Persona persona = new Persona("PepeTest", "981223344");
+		Persona persona = new Persona("44333222J","PepeTest", "981223344");
 		
 		PersonaDto pDto = personaMapper.personaToPersonaDto(persona);
 		
 		assertNull("El id viene vacio", pDto.getId());
+		assertNotNull("El DNI apunta a null", pDto.getDni());
 		assertNotNull("El nombre apunta a null", pDto.getNombre());
 		assertNotNull("El TLF apunta a null", pDto.getTelefono());
-		
+
 	}
 	
 	@Test
 	public void comprobarCamposConversionPersonaDtoToPersona() {
 
-		PersonaDto personaDto = new PersonaDto(1L,"ManoloTest", "987456123");
+		PersonaDto personaDto = new PersonaDto(1L,"44333222J","ManoloTest", "987456123");
 		
 		Persona persona = personaMapper.personaDtoToPersona(personaDto);
 		
 		assertNotNull("El id no viene vacio", persona.getId());
+		assertNotNull("El DNI apunta a null", persona.getDni());
 		assertNotNull("El nombre apunta a null", persona.getNombre());
 		assertNotNull("El TLF apunta a null", persona.getTelefono());
 		
@@ -54,21 +56,16 @@ public class PersonaMapperTest {
 	public void comprobarMapperIgnoraIdEnConversion() {
 		
 		Persona persona = new Persona();
-		PersonaDto personaDto = new PersonaDto(3L,"PepeTest", "999888777");
+		PersonaDto personaDto = new PersonaDto(3L,"44333222J","PepeTest", "999888777");
 		
 		persona = personaMapper.mergePersonaIdAndPersonaDtoToPersona(1L,personaDto);
 		
 		assertEquals("El id ha de ser 1", Long.valueOf(1), persona.getId());
+		assertEquals("El DNI debe ser el mismo", "44333222J", persona.getDni());
 		assertEquals("El nombre debe ser el mismo", "PepeTest", persona.getNombre());
 		assertEquals("El telefono debe ser el mismo", "999888777", persona.getTelefono());
 		
 	}
-	
-	
-//	@Test
-//	public void restarValorMenorDeberiaDevolverPositivo() {
-//	assertTrue("Restar un valor menor deberia devolver un valor positivo",  (10 -5) > 0);
-//	}
-	
+		
 	
 }

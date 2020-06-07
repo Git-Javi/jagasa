@@ -33,7 +33,7 @@ public class SwaggerConfig {
 				.title("Aplicación Control horario")
 				.version("1.0")
 				.license("(Licencia)")
-				.description("API para control horario de trabajadores")
+				.description("API para control horario de empleados")
 				.build();
 	}
 

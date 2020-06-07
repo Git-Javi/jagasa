@@ -63,71 +63,92 @@ public class PersonaControllerServerTest {
 	@Test
 	public void metodo02PostConIdNullDebeResponderCreatedConIdAutogeneradoTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(null, "PostTest", "666777888");
+		PersonaDto personaRequest = new PersonaDto(null, "44333222J", "PostTest", "666777888");
 		String responseBody = mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, post("/api/persona"), HttpStatus.CREATED);
 
 		PersonaDto personaResponse = objectMapper.readValue(responseBody, PersonaDto.class);
-		assertEquals(new PersonaDto(1L, "PostTest", "666777888"), personaResponse);
+		assertEquals(new PersonaDto(1L, "44333222J", "PostTest", "666777888"), personaResponse);
 	}
-
+	
 	@Test
-	public void metodo03PostConNombreVacioDebeResponderBadRequestTest() throws Exception {
+	public void metodo03PostConDniNullDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "", "666777888");
+		PersonaDto personaRequest = new PersonaDto(1L, null, "PostTest", "666777888");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, post("/api/persona"), HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
-	public void metodo04PostConNombreNullDebeResponderBadRequestTest() throws Exception {
+	public void metodo04PostConDniVacioDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, null, "666777888");
+		PersonaDto personaRequest = new PersonaDto(1L,"", "PostTest", "");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, post("/api/persona"), HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
-	public void metodo05PostConTelefonoNullDebeResponderBadRequestTest() throws Exception {
+	public void metodo05PostConFormatoDniIncorrectoDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PostTest", null);
+		PersonaDto personaRequest = new PersonaDto(1L,"4321B", "PostTest", "123456");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, post("/api/persona"), HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
-	public void metodo06PostConTelefonoVacioDebeResponderBadRequestTest() throws Exception {
+	public void metodo06PostConNombreVacioDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PostTest", "");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "", "666777888");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, post("/api/persona"), HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
-	public void metodo07PostConFormatoTelefonoIncorrectoDebeResponderBadRequestTest() throws Exception {
+	public void metodo07PostConNombreNullDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PostTest", "123456");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", null, "666777888");
+		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, post("/api/persona"), HttpStatus.BAD_REQUEST);
+	}
+
+	@Test
+	public void metodo08PostConTelefonoVacioDebeResponderBadRequestTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PostTest", "");
+		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, post("/api/persona"), HttpStatus.BAD_REQUEST);
+	}
+	
+	@Test
+	public void metodo09PostConTelefonoNullDebeResponderBadRequestTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PostTest", null);
+		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, post("/api/persona"), HttpStatus.BAD_REQUEST);
+	}
+
+	@Test
+	public void metodo10PostConFormatoTelefonoIncorrectoDebeResponderBadRequestTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PostTest", "123456");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, post("/api/persona"), HttpStatus.BAD_REQUEST);
 	}
 
 	// ---------------------------------------GET(ById)---------------------------------------
 
 	@Test
-	public void metodo08GetConIdDebeResponderOKTest() throws Exception {
+	public void metodo11GetConIdDebeResponderOKTest() throws Exception {
 
 		String responseBody = mMvcU.controllerResponseTesterNoPayloadUtil(mockMvc, get("/api/persona/1"), HttpStatus.OK);
 		PersonaDto personaResponse = objectMapper.readValue(responseBody, PersonaDto.class);
-		assertEquals(new PersonaDto(1L, "PostTest", "666777888"), personaResponse);
+		assertEquals(new PersonaDto(1L,"44333222J", "PostTest", "666777888"), personaResponse);
 	}
 
 	@Test
-	public void metodo09GetConIdInexistenteDebeResponderNotFoundTest() throws Exception {
+	public void metodo12GetConIdInexistenteDebeResponderNotFoundTest() throws Exception {
 
 		mMvcU.controllerResponseTesterNoPayloadUtil(mockMvc, get("/api/persona/5"), HttpStatus.NOT_FOUND);
 	}
 
 	// https://stackoverflow.com/questions/45070642/springboot-doesnt-handle-javax-validation-constraintviolationexception
 	// Son excepciones envueltas en otra excepción. Atrapa una excepcion (P.E
-	// ConstraintViolationException) y la arroja nuevamente en algún momento, pero
-	// envuelta en una ServletException.
+	// ConstraintViolationException) y la arroja nuevamente en algún momento, pero envuelta en una ServletException.
+	// Test realizado en PersonaControllerRestTest
 	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
 	@Test(expected = NestedServletException.class)
-	public void metodo10GetConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
+	public void metodo13GetConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
 
 		mMvcU.controllerResponseTesterNoPayloadUtil(mockMvc, get("/api/persona/0"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
@@ -135,18 +156,18 @@ public class PersonaControllerServerTest {
 	// ---------------------------------------PUT---------------------------------------
 
 	@Test
-	public void metodo11PutConIdCorrectoYPayloadCorrectoDebeResponderOKTest() throws Exception {
+	public void metodo14PutConIdCorrectoYPayloadCorrectoDebeResponderOKTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PutTest", "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PutTest", "999888777");
 		String responseBody = mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.OK);
 		PersonaDto personaResponse = objectMapper.readValue(responseBody, PersonaDto.class);
 		assertEquals(personaRequest, personaResponse);
 	}
 
 	@Test
-	public void metodo12PutConIdInexistenteDebeResponderNotFoundTest() throws Exception {
+	public void metodo15PutConIdInexistenteDebeResponderNotFoundTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PutTest", "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PutTest", "999888777");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/5"), HttpStatus.NOT_FOUND);
 	}
 
@@ -156,53 +177,74 @@ public class PersonaControllerServerTest {
 	// envuelta en una ServletException.
 	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
 	@Test(expected = NestedServletException.class)
-	public void metodo13PutConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
+	public void metodo16PutConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PutTest", "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PutTest", "999888777");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/0"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@Test
-	public void metodo14PutNoTieneEnCuentaIdPayloadDebeResponderOKTest() throws Exception {
+	public void metodo17PutNoTieneEnCuentaIdPayloadDebeResponderOKTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(3L, "PutTest", "999888777");
+		PersonaDto personaRequest = new PersonaDto(3L,"44333222J", "PutTest", "999888777");
 		String responseBody = mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.OK);
 		PersonaDto personaResponse = objectMapper.readValue(responseBody, PersonaDto.class);
-		assertEquals(new PersonaDto(1L, "PutTest", "999888777"), personaResponse);
+		assertEquals(new PersonaDto(1L,"44333222J", "PutTest", "999888777"), personaResponse);
 	}
-
+	
 	@Test
-	public void metodo15PutConNombreVacioDebeResponderBadRequestTest() throws Exception {
+	public void metodo18PutConDniVacioDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "", "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L,"", "PutTest", "999888777");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
-	public void metodo16PutConNombreNullDebeResponderBadRequestTest() throws Exception {
+	public void metodo19PutConDniNullDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, null, "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L, null, "PutTest", "999888777");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
-	public void metodo17PutConTelefonoVacioDebeResponderBadRequestTest() throws Exception {
+	public void metodo20PutConFormatoDniIncorrectoDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PutTest", "");
+		PersonaDto personaRequest = new PersonaDto(1L,"12345J", "PutTest", "999888777");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
-	public void metodo18PutConTelefonoNullDebeResponderBadRequestTest() throws Exception {
+	public void metodo21PutConNombreVacioDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PutTest", null);
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "", "999888777");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
-	public void metodo19PutConFormatoTelefonoIncorrectoDebeResponderBadRequestTest() throws Exception {
+	public void metodo22PutConNombreNullDebeResponderBadRequestTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PutTest", "123456");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", null, "999888777");
+		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.BAD_REQUEST);
+	}
+
+	@Test
+	public void metodo23PutConTelefonoVacioDebeResponderBadRequestTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PutTest", "");
+		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.BAD_REQUEST);
+	}
+
+	@Test
+	public void metodo24PutConTelefonoNullDebeResponderBadRequestTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PutTest", null);
+		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.BAD_REQUEST);
+	}
+
+	@Test
+	public void metodo25PutConFormatoTelefonoIncorrectoDebeResponderBadRequestTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PutTest", "123456");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, put("/api/persona/1"), HttpStatus.BAD_REQUEST);
 	}
 
@@ -211,25 +253,25 @@ public class PersonaControllerServerTest {
 	@Test
 	public void metodo20PatchConIdCorrectoYPayloadCorrectoDebeResponderOKTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PatchTest", "999888777");
 		String responseBody = mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.OK);
 		PersonaDto personaResponse = objectMapper.readValue(responseBody, PersonaDto.class);
-		assertEquals(new PersonaDto(1L, "PatchTest", "999888777"), personaResponse);
+		assertEquals(new PersonaDto(1L,"44333222J", "PatchTest", "999888777"), personaResponse);
 	}
 
 	@Test
 	public void metodo21PatchNoTieneEnCuentaIdPayloadDebeResponderOKTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(3L, "PatchTest", "777777777");
+		PersonaDto personaRequest = new PersonaDto(3L,"44333222J", "PatchTest", "777777777");
 		String responseBody = mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.OK);
 		PersonaDto personaResponse = objectMapper.readValue(responseBody, PersonaDto.class);
-		assertEquals(new PersonaDto(1L, "PatchTest", "777777777"), personaResponse);
+		assertEquals(new PersonaDto(1L,"44333222J", "PatchTest", "777777777"), personaResponse);
 	}
 
 	@Test
 	public void metodo22PatchConIdInexistenteDebeResponderNotFoundTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PatchTest", "999888777");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/5"), HttpStatus.NOT_FOUND);
 	}
 
@@ -241,19 +283,19 @@ public class PersonaControllerServerTest {
 	@Test(expected = NestedServletException.class)
 	public void metodo23PatchConIdIncorrectoeDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", "999888777");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PatchTest", "999888777");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/0"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-
+	
 	// https://stackoverflow.com/questions/45070642/springboot-doesnt-handle-javax-validation-constraintviolationexception
 	// Son excepciones envueltas en otra excepción. Atrapa una excepcion (P.E
 	// ConstraintViolationException) y la arroja nuevamente en algún momento, pero
 	// envuelta en una ServletException.
 	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
 	@Test(expected = NestedServletException.class)
-	public void metodo24PatchConNombreVacioDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo24PatchConDniVacioDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "", "777777777");
+		PersonaDto personaRequest = new PersonaDto(1L,"", "PatchTest", "777666555");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
@@ -263,9 +305,9 @@ public class PersonaControllerServerTest {
 	// envuelta en una ServletException.
 	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
 	@Test(expected = NestedServletException.class)
-	public void metodo25PatchConNombreNullDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo25PatchConDniNullDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, null, "777777777");
+		PersonaDto personaRequest = new PersonaDto(1L, null, "PatchTest", "777666555");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
@@ -275,9 +317,9 @@ public class PersonaControllerServerTest {
 	// envuelta en una ServletException.
 	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
 	@Test(expected = NestedServletException.class)
-	public void metodo26PatchConTelefonoVacioDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo26PatchConFormatoDniIncorrectoDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", "");
+		PersonaDto personaRequest = new PersonaDto(1L,"123555J", "PatchTest", "777666555");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
@@ -287,9 +329,9 @@ public class PersonaControllerServerTest {
 	// envuelta en una ServletException.
 	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
 	@Test(expected = NestedServletException.class)
-	public void metodo27PatchConTelefonoNullDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo27PatchConNombreVacioDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", null);
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "", "777777777");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
@@ -299,39 +341,84 @@ public class PersonaControllerServerTest {
 	// envuelta en una ServletException.
 	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
 	@Test(expected = NestedServletException.class)
-	public void metodo28PatchConFormatoTelefonoIncorrectoDebeResponderInternalServerErrorTest() throws Exception {
+	public void metodo28PatchConNombreNullDebeResponderInternalServerErrorTest() throws Exception {
 
-		PersonaDto personaRequest = new PersonaDto(1L, "PatchTest", "123456");
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", null, "777777777");
+		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+	// https://stackoverflow.com/questions/45070642/springboot-doesnt-handle-javax-validation-constraintviolationexception
+	// Son excepciones envueltas en otra excepción. Atrapa una excepcion (P.E
+	// ConstraintViolationException) y la arroja nuevamente en algún momento, pero
+	// envuelta en una ServletException.
+	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
+	@Test(expected = NestedServletException.class)
+	public void metodo29PatchConTelefonoVacioDebeResponderInternalServerErrorTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PatchTest", "");
+		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+	// https://stackoverflow.com/questions/45070642/springboot-doesnt-handle-javax-validation-constraintviolationexception
+	// Son excepciones envueltas en otra excepción. Atrapa una excepcion (P.E
+	// ConstraintViolationException) y la arroja nuevamente en algún momento, pero
+	// envuelta en una ServletException.
+	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
+	@Test(expected = NestedServletException.class)
+	public void metodo30PatchConTelefonoNullDebeResponderInternalServerErrorTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PatchTest", null);
+		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+	// https://stackoverflow.com/questions/45070642/springboot-doesnt-handle-javax-validation-constraintviolationexception
+	// Son excepciones envueltas en otra excepción. Atrapa una excepcion (P.E
+	// ConstraintViolationException) y la arroja nuevamente en algún momento, pero
+	// envuelta en una ServletException.
+	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
+	@Test(expected = NestedServletException.class)
+	public void metodo31PatchConFormatoTelefonoIncorrectoDebeResponderInternalServerErrorTest() throws Exception {
+
+		PersonaDto personaRequest = new PersonaDto(1L,"44333222J", "PatchTest", "123456");
 		mMvcU.controllerResponseTesterPayloadUtil(mockMvc, personaRequest, patch("/api/persona/1"), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@Test
-	public void metodo29PatchActualizaSoloNombreDebeResponderOKTest() throws Exception {
+	public void metodo32PatchActualizaSoloDniDebeResponderOKTest() throws Exception {
+
+		String jsonString = "{\"dni\":\"33222777E\"}";
+		String responseBody = mMvcU.controllerResponseTesterPayloadUtil(mockMvc, jsonString, patch("/api/persona/1"), HttpStatus.OK);
+		PersonaDto personaResponse = objectMapper.readValue(responseBody, PersonaDto.class);
+		assertEquals(new PersonaDto(1L,"33222777E", "PatchTest", "777777777"), personaResponse);
+	}
+	
+	@Test
+	public void metodo33PatchActualizaSoloNombreDebeResponderOKTest() throws Exception {
 
 		String jsonString = "{\"nombre\":\"SoloNombrePatch\"}";
 		String responseBody = mMvcU.controllerResponseTesterPayloadUtil(mockMvc, jsonString, patch("/api/persona/1"), HttpStatus.OK);
 		PersonaDto personaResponse = objectMapper.readValue(responseBody, PersonaDto.class);
-		assertEquals(new PersonaDto(1L, "SoloNombrePatch", "777777777"), personaResponse);
+		assertEquals(new PersonaDto(1L,"33222777E", "SoloNombrePatch", "777777777"), personaResponse);
 	}
 
 	@Test
-	public void metodo30PatchActualizaSoloTelefonoDebeResponderOKTest() throws Exception {
+	public void metodo34PatchActualizaSoloTelefonoDebeResponderOKTest() throws Exception {
 
 		String jsonString = "{\"telefono\":\"666777888\"}";
 		String responseBody = mMvcU.controllerResponseTesterPayloadUtil(mockMvc, jsonString, patch("/api/persona/1"), HttpStatus.OK);
 		PersonaDto personaResponse = objectMapper.readValue(responseBody, PersonaDto.class);
-		assertEquals(new PersonaDto(1L, "SoloNombrePatch", "666777888"), personaResponse);
+		assertEquals(new PersonaDto(1L,"33222777E", "SoloNombrePatch", "666777888"), personaResponse);
 	}
 
 	// ---------------------------------------DELETE---------------------------------------
 
 	@Test
-	public void metodo31DeleteDebeResponderNoContentTest() throws Exception {
+	public void metodo35DeleteDebeResponderNoContentTest() throws Exception {
 		mockMvc.perform(delete("/api/persona/1")).andExpect(status().is(HttpStatus.NO_CONTENT.value()));
 	}
 
 	@Test
-	public void metodo32DeleteConIdInexistenteDebeResponderNotFoundTest() throws Exception {
+	public void metodo36DeleteConIdInexistenteDebeResponderNotFoundTest() throws Exception {
 		mockMvc.perform(delete("/api/persona/1")).andExpect(status().is(HttpStatus.NOT_FOUND.value()));
 	}
 
@@ -341,7 +428,7 @@ public class PersonaControllerServerTest {
 	// envuelta en una ServletException.
 	@Ignore("PENDIENTE CONTROL DE ESTADOS HTTP")
 	@Test(expected = NestedServletException.class)
-	public void metodo33DeleteConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
+	public void metodo37DeleteConIdIncorrectoDebeSerInternalServerErrorTest() throws Exception {
 		mockMvc.perform(delete("/api/persona/0")).andExpect(status().is(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 	}
 }

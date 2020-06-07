@@ -2,7 +2,6 @@ package app.annotation.constraint;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import javax.validation.ConstraintViolationException;
 
 public class PhoneValidator implements ConstraintValidator<Phone, String> {
 
