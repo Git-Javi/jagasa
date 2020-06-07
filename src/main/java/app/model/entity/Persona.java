@@ -1,55 +1,42 @@
 package app.model.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@Entity
+@Table(name = "PERSONA")
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class Persona {
 
+	@Id
+	@GeneratedValue
+	@Column(name = "id", nullable = false)
 	private Long id;
+	
+	@NotBlank
+	@NonNull
+	@Column(name = "dni", nullable = false)
+	private String dni;
+
+	@NotBlank
+	@NonNull
+	@Column(name = "nombre", nullable = false)
 	private String nombre;
-	private String tlf;
-	
-	
-	public Persona(Long id, String nombre, String tlf) {
-		this.id = id;
-		this.nombre = nombre;
-		this.tlf = tlf;
-	}
 
+	@NotBlank
+	@NonNull
+	@Column(name = "telefono", nullable = false)
+	private String telefono;
 
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-	public String getNombre() {
-		return nombre;
-	}
-
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-
-	public String getTlf() {
-		return tlf;
-	}
-
-
-	public void setTlf(String tlf) {
-		this.tlf = tlf;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Persona [id=" + id + ", nombre=" + nombre + ", tlf=" + tlf + "]";
-	}
-	
-	
-	
-	
 }
