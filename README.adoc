@@ -1,8 +1,11 @@
-Rama Master.
-Se hace push del proyecto con los siguientes puntos completados:
+El proyecto se identifica como un API REST de empleados y sus datos laborales, e intercambia dicha información en formato JSON con el cliente que la consume, que puede ser desde otras APIs hasta sitios web.
 
-- Alta de un nuevo proyecto en github y compartir.
-- Creado un proyecto maven con el spring boot inizialyzer y se realiza de nuevo todo el trabajo realizado hasta entonces con el proyecto de https://spring.io/guides/gs/rest-service/
-- Crear rama para desarrollar sin ser en master.
-- Generar un controller /persona que mediante un POST reciba un DTO persona y lo pinte en consola. Para lanzar la llamada puedes usar [postman|soapui|curl]
-- Generar un service que reciba una persona (DTO) y lo pinte en consola (Enlazar el servicio con el controlador)
+Los objetivos que se persiguen tanto con la aplicación como con las propias tecnologías usadas para su desarrollo son:
+
+  - Proporcionar una base tecnológica funcional, estable y escalable para el control horario de los empleados en las empresas.
+
+  - Mecanizar y simplificar el registro de las jornadas laborales realizadas por los empleados así como la gestión de los datos básicos       para ello.
+
+  - Permitir y facilitar el procesamiento de los datos y la realización de análisis complejos.
+  
+El proyecto de control horario de trabajadores está diseñado en lenguaje Java y tiene una estructura cliente-servidor siguiendo una arquitectura de capas con tareas bien diferenciadas, como son presentación, manipulación y procesamiento de datos o la gestión de repositorios (persistencia) en SQL contra una base de datos H2. Todo ello creado sobre la base que proporciona Maven, el framework Spring y herramientas propias de éste framework como Spring Boot y Spring Data JPA. Se utiliza además, Hibernate para el modelo autogenerado en la base de datos y Tomcat como contenedor web para el despliegue de la misma.
