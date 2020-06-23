@@ -33,7 +33,7 @@ import lombok.extern.slf4j.Slf4j;
 @Validated
 @RestController
 @Slf4j
-@Api(tags = "Controller")
+@Api(tags = "Persona Controller")
 @RequestMapping(path = "/api")
 public class PersonaController {
 
@@ -96,7 +96,7 @@ public class PersonaController {
 		personaService.deletePersonaById(id);
 	}
 
-	@ApiOperation("Actualiza parcialmente una persona")
+	@ApiOperation("Actualiza parcialmente una persona por id")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"), @ApiResponse(code = 404, message = "NOT FOUND") })
 	@PatchMapping(value = "/persona/{id}")
 	@ResponseStatus(value = HttpStatus.OK)
