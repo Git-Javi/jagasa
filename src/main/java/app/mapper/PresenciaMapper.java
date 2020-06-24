@@ -15,10 +15,10 @@ import app.model.entity.Presencia;
 @Mapper
 public interface PresenciaMapper {
 
-		PresenciaDto presenciaToPresenciaDto (@Valid @NotNull Presencia presencia);
+	PresenciaDto presenciaToPresenciaDto (@Valid @NotNull Presencia presencia);
 		
-		Presencia presenciaDtoToPresencia (@Valid @NotNull PresenciaDto presenciaDto);
+	Presencia presenciaDtoToPresencia (@Valid @NotNull PresenciaDto presenciaDto);
 		
-		@Mapping(source = "presenciaId", target = "id")
-		Presencia mergePresenciaIdAndPresenciaDtoToPresencia (@NotNull @Positive Long presenciaId, @Valid @NotNull PresenciaDto presenciaDTo);
+	@Mapping(source = "presenciaId", target = "id")
+	Presencia mergePresenciaIdAndPresenciaDtoToPresencia (@NotNull @Positive Long presenciaId, @Valid @NotNull PresenciaDto presenciaDTo);
 }

@@ -24,8 +24,7 @@ public class SwaggerConfig {
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("app.controller"))
 				.paths(PathSelectors.regex("/api/.*"))
-				.build()
-				.groupName("Persona");
+				.build();
 	}   
 
 	    
