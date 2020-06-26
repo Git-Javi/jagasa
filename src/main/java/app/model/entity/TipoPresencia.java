@@ -1,14 +1,10 @@
 package app.model.entity;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -19,32 +15,19 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "PERSONA")
+@Table(name = "TIPO_PRESENCIA")
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Persona {
+public class TipoPresencia {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Long id;
-	
-	@NotBlank
-	@NonNull
-	@Column(name = "dni", nullable = false)
-	private String dni;
 
 	@NotBlank
 	@NonNull
 	@Column(name = "nombre", nullable = false)
 	private String nombre;
-
-	@NotBlank
-	@NonNull
-	@Column(name = "telefono", nullable = false)
-	private String telefono;
-	
-	@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
-	private List<Presencia> presencias;
 	
 }

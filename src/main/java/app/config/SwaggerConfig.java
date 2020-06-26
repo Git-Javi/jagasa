@@ -23,9 +23,10 @@ public class SwaggerConfig {
 				.useDefaultResponseMessages(false)
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("app.controller"))
-				.paths(PathSelectors.regex("/api/persona.*"))
+				.paths(PathSelectors.regex("/api/.*"))
 				.build();
-	}    
+	}   
+
 	    
 	private ApiInfo apiInfo() {
 
