@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,12 +37,11 @@ public class Presencia {
 	private LocalDateTime inicio;
 	
 	@PastOrPresent
-	//@NonNull
 	@Column(name = "fecha_hora_fin_presencia")
 	private LocalDateTime fin;
 	
 	@NonNull
-	@ManyToOne//(cascade = CascadeType.ALL, orphanRemoval = true) // Si lo dejo salta el erro en controller de persona con los PUT y PATCH -> A collection with cascade="all-delete-orphan" was no longer referenced by the owning entity instance: app.model.entity.Persona.presencias; nested exception is org.hibernate.HibernateException: A collection with cascade="all-delete-orphan" was no longer referenced by the owning entity instance: app.model.entity.Persona.presencias
+	@ManyToOne (fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_persona", nullable = false)
 	private Persona persona;
 	
@@ -49,4 +49,5 @@ public class Presencia {
 	@OneToOne
 	@JoinColumn(name = "id_tipo_presencia", nullable = false)
 	private TipoPresencia tipoPresencia;
+	
 }
