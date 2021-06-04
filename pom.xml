@@ -21,7 +21,7 @@
 		<org.projectlombok.version>1.18.8</org.projectlombok.version>
 		<io.springfox.version>2.9.2</io.springfox.version>
 		<com.fasterxml.jackson.core.version>2.10.0.pr1</com.fasterxml.jackson.core.version>
-		<org.apache.httpcomponents.version>4.5.9</org.apache.httpcomponents.version>
+		<org.apache.httpcomponents.version>4.5.13</org.apache.httpcomponents.version>
 	</properties>
 
 	<dependencies>
